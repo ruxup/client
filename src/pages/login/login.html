@@ -1,6 +1,6 @@
 <ion-header>
-    <ion-navbar [hidden]="true" *navbar> 
-      <button ion-button menuToggle>
+    <ion-navbar [hidden]="true" *navbar>
+        <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
         <ion-title>Login</ion-title>
@@ -8,7 +8,8 @@
 </ion-header>
 
 <ion-content padding>
-    <h3>Ruxup</h3>
+    <h3>Ruxup Login</h3>
 
-    <button ion-button secondary menuToggle>Sign In</button>
+    <button ion-button secondary>Login</button>
+    <button ion-button secondary (click)='register()'>Register</button>
 </ion-content>
