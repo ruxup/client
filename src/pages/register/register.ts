@@ -21,6 +21,10 @@ export class RegisterPage {
     this.navCtrl.pop();
   }
 
+  register() {
+    console.log('register');
+  }
+
   ionViewDidLoad() {
     console.log('<--- Register Page --->');
   }

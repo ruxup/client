@@ -1,3 +1,46 @@
-page-register {
+.page-register {
+    background-color: #4e75b9;
+    padding: 2em;
+    font-weight: 300;
+    //background: linear-gradient(55deg, #4e75b9 29%, #5cbf98 90%);
+    &__container {
+        padding-top: 25%;
+        text-align: center;
+    }
+    &__forms {
+        padding: 1em;
+        text-align: center;
+        &--input {
+            margin-bottom: 20px;
+            padding: 0 15px 10px 15px;
+            font-size: 1em;
+            -webkit-border-radius: 3px;
+            border-radius: 3px;
+        }
+        &--button {
+            margin-top: 35px;
+            margin-bottom: 10px;
+        }
+        &--link {
+            color: white;
+        }
+    }
+}
 
+.dark-grey {
+    background: #4e5056;
+}
+
+.light-green {
+    background: #c0d34b;
+}
+
+.ruxup-logo {
+    display: inline-block;
+    width: 180px;
+    height: 65px;
+    margin-bottom: 20px;
+    background: url('/assets/ruxup-logo.png') no-repeat;
+    background-size: 100% auto;
+    background-position: 0;
 }
