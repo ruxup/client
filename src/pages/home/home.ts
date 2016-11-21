@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, MenuController } from 'ionic-angular';
 
+import { LoginPage } from '../login/login';
+
 /*
   Generated class for the Home page.
 
@@ -23,7 +25,7 @@ export class HomePage {
 
   logout() {
     console.log('logout');
-    this.navCtrl.popToRoot();
+    this.navCtrl.setRoot(LoginPage);
   }
 
 }

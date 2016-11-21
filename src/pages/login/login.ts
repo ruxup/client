@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, MenuController } from 'ionic-angular';
 
 import { RegisterPage } from '../register/register';
+import { HomePage } from '../home/home';
 
 /*
   Generated class for the Login page.
@@ -25,6 +26,7 @@ export class LoginPage {
 
   login() {
     console.log('login');
+    this.navCtrl.setRoot(HomePage);
   }
 
   register() {
