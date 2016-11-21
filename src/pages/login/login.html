@@ -7,11 +7,28 @@
     </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-    <h3>Login</h3>
+<ion-content padding class="page-login">
+    <div class="page-login__container">
+        <span class="ruxup-logo"></span>
+    </div>
+    <ion-list class="page-login__forms">
 
+        <ion-item class="page-login__forms--input">
+            <ion-label floating>Email</ion-label>
+            <ion-input type="email"></ion-input>
+        </ion-item>
 
-    <button ion-button secondary (click)="login()">Login</button>
-    <button ion-button secondary (click)="register()">Register</button>
+        <ion-item class="page-login__forms--input">
+            <ion-label floating>Password</ion-label>
+            <ion-input type="password"></ion-input>
+        </ion-item>
+
+        <button ion-button block round class="page-login__forms--button dark-grey" (click)="login() ">LOG IN</button>
+
+        <button ion-button block round class="page-login__forms--button dark-grey" [hidden]="true" (click)="register()">REGISTER</button>
+
+        <a class="page-login__forms--link" (click)="register()">Don't have an account? Register here!</a>
+    </ion-list>
+
 
 </ion-content>
