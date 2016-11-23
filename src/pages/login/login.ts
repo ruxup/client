@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
+import { Validators, FormBuilder } from '@angular/forms';
 import { NavController, MenuController } from 'ionic-angular';
+
+import { AuthService } from '../../providers/auth-service';
 
 import { RegisterPage } from '../register/register';
 import { HomePage } from '../home/home';
@@ -12,12 +15,18 @@ import { HomePage } from '../home/home';
 */
 @Component({
   selector: 'page-login',
-  templateUrl: 'login.html'
+  templateUrl: 'login.html',
+  providers: [AuthService]
 })
 export class LoginPage {
+  user:any;
 
-  constructor(public navCtrl: NavController, public menuCtrl: MenuController) {
+  constructor(public navCtrl: NavController, public menuCtrl: MenuController, private formBuilder: FormBuilder, private authService: AuthService) {
     this.menuCtrl.swipeEnable(false);
+    this.user = this.formBuilder.group({
+      'email': ['', Validators.required],
+      'password': ['', Validators.required]
+    });
   }
 
   ionViewDidLoad() {
@@ -26,7 +35,9 @@ export class LoginPage {
 
   login() {
     console.log('login');
-    this.navCtrl.setRoot(HomePage);
+    console.log(this.user.value);
+    this.authService.login(this.user.value);
+    //this.navCtrl.setRoot(HomePage);
   }
 
   register() {

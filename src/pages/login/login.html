@@ -12,20 +12,22 @@
         <span class="ruxup-logo"></span>
     </div>
     <ion-list class="page-login__forms">
+        <form [formGroup]="user" (ngSubmit)='login()'>
+            <ion-item class="page-login__forms--input">
+                <ion-label floating>Email</ion-label>
+                <ion-input name="email" formControlName="email" type="email"></ion-input>
+            </ion-item>
 
-        <ion-item class="page-login__forms--input">
-            <ion-label floating>Email</ion-label>
-            <ion-input type="email"></ion-input>
-        </ion-item>
+            <ion-item class="page-login__forms--input">
+                <ion-label floating>Password</ion-label>
+                <ion-input name="password" formControlName="password" type="password"></ion-input>
+            </ion-item>
 
-        <ion-item class="page-login__forms--input">
-            <ion-label floating>Password</ion-label>
-            <ion-input type="password"></ion-input>
-        </ion-item>
+            <button ion-button block round class="page-login__forms--button dark-grey" type="submit" [disabled]="!user.valid">LOG IN</button>
 
-        <button ion-button block round class="page-login__forms--button dark-grey" (click)="login() ">LOG IN</button>
+            <button ion-button block round class="page-login__forms--button dark-grey" [hidden]="true" (click)="register()">REGISTER</button>
+        </form>
 
-        <button ion-button block round class="page-login__forms--button dark-grey" [hidden]="true" (click)="register()">REGISTER</button>
 
         <a class="page-login__forms--link" (click)="register()">Don't have an account? Register here!</a>
     </ion-list>
