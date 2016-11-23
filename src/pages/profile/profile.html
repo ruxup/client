@@ -1,15 +1,93 @@
 <ion-header>
-    <ion-navbar>
-        <button ion-button menuToggle>
+  <ion-navbar>
+    <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-        <ion-title>Profile</ion-title>
-    </ion-navbar>
+    <ion-title>Profile</ion-title>
+  </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-    <h3>Your Profile, Ruxup!</h3>
+  <!--<h3>Your Profile, Ruxup!</h3>-->
+  <ion-grid>
+    <ion-row id="profile-cover">
+      <ion-col width-100 class="cover">
+        <ion-item class="item-profile">
+          <div class="item-avatar" class="image-cropper" text-center>
+            <img src="http://www.electricvelocity.com.au/Upload/Blogs/smart-e-bike-side_2.jpg" class="rounded"/>
+          </div>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row id="profile-buttons">
+      <ion-col width-100 class="">
+        <button ion-button color="light">Groups</button>
+        <button ion-button color="light">Events</button>
+        <button ion-button color="light">Button</button>
+        <button ion-button color="light">Button</button>
+      </ion-col>
+    </ion-row>
+    <ion-row id="profile-bio">
+      <ion-col width-100>
+        <ion-card>
+          <ion-card-header text-center class="profile-bio__header">
+            Bio
+          </ion-card-header>
+          <ion-list>
+            <ion-item>
+              Name:
+            </ion-item>
+          </ion-list>
+          <ion-list>
+            <ion-item>
+              Lastname:
+            </ion-item>
+          </ion-list>
+          <ion-list>
+            <ion-item>
+              Date of Birth:
+            </ion-item>
+          </ion-list>
+          <ion-list>
+            <ion-item>
+              Email:
+            </ion-item>
+          </ion-list>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row id="profile-history">
+      <ion-col width-100>
+        <ion-card>
+          <ion-card-header text-center class="profile-bio__header">
+            Description
+          </ion-card-header>
+          <ion-list>
+            <ion-item>
 
+            </ion-item>
+          </ion-list>
 
-    <button ion-button secondary (click)='logout()'>Logout</button>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row id="profile-logactivity">
+      <ion-col width-100 class="">
+        <ion-card>
+        <ion-card-header text-center class="profile-bio__header">
+          Log Activity
+        </ion-card-header>
+        <ion-list>
+          <ion-item>
+            <ion-avatar item-left>
+            </ion-avatar>
+          </ion-item>
+        </ion-list>
+          </ion-card>
+      </ion-col>
+    </ion-row>
+    <!--<button ion-button secondary (click)='logout()'>Logout</button>-->
+    <button ion-button block class="button--red" (click)='logout()'>Delete</button>
+  </ion-grid>
 </ion-content>
+
