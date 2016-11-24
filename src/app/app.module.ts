@@ -3,6 +3,7 @@ import { IonicApp, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 
 import { AuthService } from '../providers/auth-service';
+import { ApiService } from '../providers/api-service';
 
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
@@ -28,6 +29,6 @@ import { ProfilePage } from '../pages/profile/profile';
     HomePage,
     ProfilePage
   ],
-  providers: [AuthService]
+  providers: [ApiService, AuthService]
 })
 export class AppModule {}

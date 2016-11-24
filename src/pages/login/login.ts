@@ -37,7 +37,7 @@ export class LoginPage {
     console.log('login');
     console.log(this.user.value);
     this.authService.login(this.user.value);
-    //this.navCtrl.setRoot(HomePage);
+    this.navCtrl.setRoot(HomePage);
   }
 
   register() {
