@@ -13,6 +13,7 @@ import {NavController} from 'ionic-angular';
 export class ProfilePage {
   user: any;
 
+
   constructor(public navCtrl: NavController) {
     this.user = {
       name: "armin",
@@ -23,7 +24,6 @@ export class ProfilePage {
       image:""
     };
   }
-
 
   ionViewDidLoad() {
     console.log('Hello ProfilePage Page');

@@ -1,43 +1,47 @@
 <ion-header>
-    <ion-navbar [hidden]="true" *navbar>
-        <button ion-button menuToggle>
+  <ion-navbar [hidden]="true" *navbar>
+    <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-        <ion-title>Register</ion-title>
-    </ion-navbar>
+    <ion-title>Register</ion-title>
+  </ion-navbar>
 </ion-header>
 
 <ion-content padding class="page-register">
-    <div class="page-register__container">
-        <span class="ruxup-logo"></span>
+
+    <div class="page-register__container" >
+      <span class="ruxup-logo"></span>
     </div>
+  <form>
     <ion-list class="page-register__forms">
+      <ion-item class="page-register__forms--input">
+        <ion-label floating>Name</ion-label>
+        <ion-input type="name" ngControl="name"></ion-input>
+      </ion-item>
+      <ion-item class="page-register__forms--input">
+        <ion-label floating>Email</ion-label>
+        <ion-input type="email" ngControl="email"></ion-input>
+      </ion-item>
 
-        <ion-item class="page-register__forms--input">
-            <ion-label floating>Name</ion-label>
-            <ion-input type="name"></ion-input>
-        </ion-item>
-        <ion-item class="page-register__forms--input">
-            <ion-label floating>Email</ion-label>
-            <ion-input type="email"></ion-input>
-        </ion-item>
+      <ion-item class="page-register__forms--input">
+        <ion-label floating>Password</ion-label>
+        <ion-input type="password" ngControl="password"></ion-input>
+      </ion-item>
 
-        <ion-item class="page-register__forms--input">
-            <ion-label floating>Password</ion-label>
-            <ion-input type="password"></ion-input>
-        </ion-item>
+      <ion-item class="page-register__forms--input">
+        <ion-label floating>Confirm Password</ion-label>
+        <ion-input type="password" ngControl="password"></ion-input>
+      </ion-item>
 
-        <ion-item class="page-register__forms--input">
-            <ion-label floating>Confirm Password</ion-label>
-            <ion-input type="password"></ion-input>
-        </ion-item>
+      <button ion-button block round class="page-register__forms--button dark-grey" (click)="register() ">REGISTER
+      </button>
 
-        <button ion-button block round class="page-register__forms--button dark-grey" (click)="register() ">REGISTER</button>
+      <button ion-button block round class="page-register__forms--button dark-grey" [hidden]="true"
+              (click)="register()">REGISTER
+      </button>
 
-        <button ion-button block round class="page-register__forms--button dark-grey" [hidden]="true" (click)="register()">REGISTER</button>
-
-        <a class="page-register__forms--link" (click)="goBack()">Already have an account? Sign in here!</a>
+      <a class="page-register__forms--link" (click)="goBack()">Already have an account? Sign in here!</a>
     </ion-list>
 
-
+  </form>
 </ion-content>
