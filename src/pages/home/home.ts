@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, MenuController } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
 
 import { LoginPage } from '../login/login';
 
@@ -15,12 +16,16 @@ import { LoginPage } from '../login/login';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController, public menuCtrl: MenuController) {
+  constructor(public navCtrl: NavController, public menuCtrl: MenuController, public storage: Storage) {
     this.menuCtrl.swipeEnable(true);
   }
 
   ionViewDidLoad() {
     console.log('<--- Home Page --->');
+          
+     this.storage.get('token').then((val) => {
+       console.log('Token: ', val);
+     })
   }
 
   logout() {

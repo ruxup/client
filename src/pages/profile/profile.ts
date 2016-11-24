@@ -12,8 +12,13 @@ import { NavController } from 'ionic-angular';
   templateUrl: 'profile.html'
 })
 export class ProfilePage {
-
-  constructor(public navCtrl: NavController) {}
+  user: any;
+  
+  constructor(public navCtrl: NavController) {
+    this.user = {
+      'name': 'test'
+    }
+  }
 
   ionViewDidLoad() {
     console.log('Hello ProfilePage Page');

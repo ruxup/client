@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms';
-import { NavController, MenuController } from 'ionic-angular';
+import { NavController, MenuController, ToastController } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
 
 import { AuthService } from '../../providers/auth-service';
 
@@ -20,28 +21,53 @@ import { HomePage } from '../home/home';
 })
 export class LoginPage {
   user:any;
+  token:string;
 
-  constructor(public navCtrl: NavController, public menuCtrl: MenuController, private formBuilder: FormBuilder, private authService: AuthService) {
+  constructor(public storage: Storage, 
+              public navCtrl: NavController, 
+              public menuCtrl: MenuController, 
+              public toastCtrl: ToastController,
+              public formBuilder: FormBuilder, 
+              public authService: AuthService) {
     this.menuCtrl.swipeEnable(false);
     this.user = this.formBuilder.group({
       'email': ['', Validators.required],
       'password': ['', Validators.required]
     });
+
   }
 
   ionViewDidLoad() {
-    console.log('<--- Login Page --->');
   }
 
   login() {
-    console.log('login');
-    console.log(this.user.value);
-    this.authService.login(this.user.value);
-    this.navCtrl.setRoot(HomePage);
+    this.authService.login(this.user.value)
+      .subscribe(
+        data => { 
+          this.token = data; 
+          this.storage.set('token', data);
+          this.navCtrl.push(HomePage); 
+        }
+        ,err => {
+          console.log(err._body);
+          this.presentToast(err._body);
+          this.storage.clear();
+        });
+
+      console.log('token: ', this.token);
   }
 
   register() {
     this.navCtrl.push(RegisterPage);
   }
 
+  presentToast(message: string) {
+    let toast = this.toastCtrl.create({
+      message: message,
+      duration: 3000,
+      position: 'bottom'
+    });
+
+    toast.present();
+  }
 }

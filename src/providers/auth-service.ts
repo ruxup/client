@@ -1,7 +1,11 @@
 import { NavController } from 'ionic-angular';
 import { Injectable } from '@angular/core';
-import { Http, Headers, RequestOptions } from '@angular/http';
+import { Http, Headers, Response, RequestOptions } from '@angular/http';
+import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
+
+import { Storage } from '@ionic/storage';
+
 
 import { ApiService } from './api-service';
 
@@ -21,14 +25,13 @@ let currentUser = {};
 
 @Injectable()
 export class AuthService {
+  public token: string;
 
-
-  constructor(public apiService: ApiService, public http: Http, public navCtrl: NavController) {
-    console.log('Hello AuthService Provider');
+  constructor(public apiService: ApiService, public http: Http, public navCtrl: NavController, public storage: Storage) {
 
   }
 
-  login(user) {
+  login(user): Observable<string> {
     currentUser = new User(user.email, user.password);
     console.log(currentUser)
 
@@ -44,21 +47,15 @@ export class AuthService {
 
     let options = new RequestOptions({headers: headers});
 
-    this.http
+    return this.http
       .post('/api/login', body, options)
-      .map(res => res.json())
-      .subscribe(
-        data => {
-          console.log(data);
-        }, 
-        err => {
-          console.log('ERROR!: ', err);
-        }
-      )
+        .map(res => res.json())
+        .catch((error: any) => Observable.throw(error));
 }
 
   logout() {
     console.log("logout");
+    this.storage.clear();
   }
 
 

@@ -12,7 +12,6 @@ import 'rxjs/add/operator/map';
 export class ApiService {
 
   constructor(public http: Http) {
-    console.log('Hello ApiService Provider');
   }
 
 }

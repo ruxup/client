@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { IonicApp, IonicModule } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
+
 import { MyApp } from './app.component';
 
 import { AuthService } from '../providers/auth-service';
@@ -29,6 +31,6 @@ import { ProfilePage } from '../pages/profile/profile';
     HomePage,
     ProfilePage
   ],
-  providers: [ApiService, AuthService]
+  providers: [Storage, ApiService, AuthService]
 })
 export class AppModule {}

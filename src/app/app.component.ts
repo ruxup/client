@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
+import { Storage } from '@ionic/storage';
 
 import { LoginPage } from '../pages/login/login';
 import { HomePage } from '../pages/home/home';
@@ -12,17 +13,29 @@ import { ProfilePage } from '../pages/profile/profile';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
+
   rootPage: any = LoginPage;
 
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{ title: string, component: any }>;
 
-  constructor(public platform: Platform) {
+  constructor(public platform: Platform, public storage: Storage) {
+    // Check if it's authenticated
+      if (val) {
+        console.log('Loaded: ', val);
+        this.nav.setRoot(HomePage);
+      } else {
+        console.log('gak ke load');
+      }
+    })
+
+
     this.initializeApp();
+
 
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage },
-      { title: 'Profile', component: ProfilePage },      
+      { title: 'Profile', component: ProfilePage },
       { title: 'Logout', component: HomePage }
 
     ];
