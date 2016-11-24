@@ -34,7 +34,7 @@ export class AuthService {
 
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-  
+
     let body = JSON.stringify({
       email: user.email,
       password: user.password
@@ -45,12 +45,13 @@ export class AuthService {
     let options = new RequestOptions({headers: headers});
 
     this.http
-      .post('https://ruxup.herokuapp.com/backend/public/index.php/api/login', body, options)
+
+      .post('/api/login', body, options)
       .map(res => res.json())
       .subscribe(
         data => {
           console.log(data);
-        }, 
+        },
         err => {
           console.log('ERROR!: ', err);
         }
