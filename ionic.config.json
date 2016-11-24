@@ -5,6 +5,6 @@
     "typescript": true,
     "proxies": [{
         "path": "/api",
-        "proxyUrl": "https://ruxup.herokuapp.com/backend/public/index.php/"
+        "proxyUrl": "https://ruxup.herokuapp.com/backend/public/index.php/api"
     }]
 }
