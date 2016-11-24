@@ -7,7 +7,7 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
   <!--<h3>Your Profile, Ruxup!</h3>-->
   <ion-grid>
     <ion-row id="profile-cover">
@@ -35,22 +35,22 @@
           </ion-card-header>
           <ion-list>
             <ion-item>
-              Name:
+              Name: {{user.name}}
             </ion-item>
           </ion-list>
           <ion-list>
             <ion-item>
-              Lastname:
+              Lastname:{{user.lastname}}
             </ion-item>
           </ion-list>
           <ion-list>
             <ion-item>
-              Date of Birth:
+              Date of Birth: {{user.dateOfBirth}}
             </ion-item>
           </ion-list>
           <ion-list>
             <ion-item>
-              Email:
+              Email:{{user.email}}
             </ion-item>
           </ion-list>
         </ion-card>
@@ -64,7 +64,7 @@
           </ion-card-header>
           <ion-list>
             <ion-item>
-
+              {{user.description}}
             </ion-item>
           </ion-list>
 
@@ -74,20 +74,20 @@
     <ion-row id="profile-logactivity">
       <ion-col width-100 class="">
         <ion-card>
-        <ion-card-header text-center class="profile-bio__header">
-          Log Activity
-        </ion-card-header>
-        <ion-list>
-          <ion-item>
-            <ion-avatar item-left>
-            </ion-avatar>
-          </ion-item>
-        </ion-list>
-          </ion-card>
+          <ion-card-header text-center class="profile-bio__header">
+            Log Activity
+          </ion-card-header>
+          <ion-list>
+            <ion-item>
+              <ion-avatar item-left>
+              </ion-avatar>
+            </ion-item>
+          </ion-list>
+        </ion-card>
       </ion-col>
     </ion-row>
-    <!--<button ion-button secondary (click)='logout()'>Logout</button>-->
-    <button ion-button block class="button--red" (click)='logout()'>Delete</button>
+    <button ion-button block class="button--gray"(click)='logout()'>Logout</button>
+    <!--<button ion-button block  (click)='logout()'>Delete</button>-->
   </ion-grid>
 </ion-content>
 
