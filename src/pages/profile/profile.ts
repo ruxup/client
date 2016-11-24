@@ -11,6 +11,7 @@ import {NavController} from 'ionic-angular';
   templateUrl: 'profile.html'
 })
 export class ProfilePage {
+<<<<<<< HEAD
   user: any;
 
 
@@ -24,6 +25,10 @@ export class ProfilePage {
       image:""
     };
   }
+=======
+
+  constructor(public navCtrl: NavController) {}
+>>>>>>> parent of bc7f39a... Finished login implementation
 
   ionViewDidLoad() {
     console.log('Hello ProfilePage Page');

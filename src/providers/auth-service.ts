@@ -45,13 +45,20 @@ export class AuthService {
     let options = new RequestOptions({headers: headers});
 
     this.http
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of bc7f39a... Finished login implementation
       .post('/api/login', body, options)
       .map(res => res.json())
       .subscribe(
         data => {
           console.log(data);
+<<<<<<< HEAD
         },
+=======
+        }, 
+>>>>>>> parent of bc7f39a... Finished login implementation
         err => {
           console.log('ERROR!: ', err);
         }
