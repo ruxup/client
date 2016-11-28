@@ -46,7 +46,7 @@ export class LoginPage {
         data => { 
           this.token = data; 
           this.storage.set('token', data);
-          this.navCtrl.push(HomePage); 
+          this.navCtrl.setRoot(HomePage);
         }
         ,err => {
           console.log(err._body);

@@ -19,15 +19,6 @@ export class MyApp {
   pages: Array<{ title: string, component: any }>;
 
   constructor(public platform: Platform, public storage: Storage) {
-    // Check if it's authenticated
-      if (val) {
-        console.log('Loaded: ', val);
-        this.nav.setRoot(HomePage);
-      } else {
-        console.log('gak ke load');
-      }
-    })
-
 
     this.initializeApp();
 
