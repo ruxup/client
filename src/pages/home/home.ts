@@ -21,8 +21,7 @@ export class HomePage {
   }
 
   ionViewDidLoad() {
-    console.log('<--- Home Page --->');
-          
+        
      this.storage.get('token').then((val) => {
        console.log('Token: ', val);
      })
