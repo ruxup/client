@@ -3,7 +3,7 @@
     "author": "Ruxup Group",
     "homepage": "http://ruxup-client.herokuapp.com/",
     "private": true,
-    "version": "1.0",
+    "version": "1.0.0",
     "scripts": {
         "ionic:build": "ionic-app-scripts build",
         "ionic:serve": "ionic-app-scripts serve",
