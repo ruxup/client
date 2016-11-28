@@ -9,7 +9,13 @@ $ npm install
 
 Everything is set up to serve from the www folder using
 ```bash
-$ npm serve
+$ ionic serve 
+```
+
+Solving CORS issue:
+```bash
+install Allow-Control-Allow-Origin chrome extension
+Add ruxup.herokuapp.com/*/** in the intercepted URL forms
 ```
 
 ## DEMO
