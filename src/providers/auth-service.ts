@@ -48,7 +48,8 @@ export class AuthService {
     let options = new RequestOptions({headers: headers});
 
     return this.http
-      .post('/api/login', body, options)
+      // .post('/api/login', body, options)
+      .post('https://ruxup.herokuapp.com/backend/public/index.php/api/login', body, options)
         .map(res => res.json())
         .catch((error: any) => Observable.throw(error));
 }
