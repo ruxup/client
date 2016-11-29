@@ -58,5 +58,4 @@ export class AuthService {
     this.storage.clear();
   }
 
-
 }

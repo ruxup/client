@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { NavController, MenuController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
+import { AuthService } from '../../providers/auth-service';
 
 import { LoginPage } from '../login/login';
+
 
 /*
   Generated class for the Home page.
@@ -12,11 +14,17 @@ import { LoginPage } from '../login/login';
 */
 @Component({
   selector: 'page-home',
-  templateUrl: 'home.html'
+  templateUrl: 'home.html',
+  providers: [AuthService]
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController, public menuCtrl: MenuController, public storage: Storage) {
+  movies: Array<any>;
+
+  constructor(public navCtrl: NavController, 
+              public menuCtrl: MenuController, 
+              public storage: Storage,
+              public authService: AuthService) {
     this.menuCtrl.swipeEnable(true);
   }
 

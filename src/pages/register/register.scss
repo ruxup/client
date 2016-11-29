@@ -4,7 +4,7 @@
     font-weight: 300;
     //background: linear-gradient(55deg, #4e75b9 29%, #5cbf98 90%);
     &__container {
-        padding-top: 25%;
+        padding-top: 15%;
         text-align: center;
     }
     &__forms {
@@ -38,9 +38,8 @@
 .ruxup-logo {
     display: inline-block;
     width: 180px;
-    height: 65px;
     margin-bottom: 20px;
-    background: url('/assets/ruxup-logo.png') no-repeat;
+    //background: url('/assets/ruxup-logo.png') no-repeat;
     background-size: 100% auto;
     background-position: 0;
 }
