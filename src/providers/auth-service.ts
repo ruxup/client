@@ -45,7 +45,7 @@ export class AuthService {
     let options = new RequestOptions({headers: headers});
 
     return this.http
-      .post('http://ruxup.herokuapp.com/backend/public/index.php/api/login', body, options)
+      .post('https://ruxup.herokuapp.com/backend/public/index.php/api/login', body, options)
         .map(res => res.json())
         .catch((error: any) => Observable.throw(error));
 }
@@ -72,7 +72,7 @@ export class AuthService {
     let options = new RequestOptions({headers: headers});
 
     return this.http
-      .post('http://ruxup.herokuapp.com/backend/public/index.php/api/register', body, options)
+      .post('https://ruxup.herokuapp.com/backend/public/index.php/api/register', body, options)
         .map(res => res.json())
         .catch((error: any) => Observable.throw(error));
   }
