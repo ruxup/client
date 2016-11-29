@@ -4,6 +4,7 @@ import { StatusBar, Splashscreen } from 'ionic-native';
 import { Storage } from '@ionic/storage';
 
 import { LoginPage } from '../pages/login/login';
+import { RegisterPage } from '../pages/register/register';
 import { HomePage } from '../pages/home/home';
 import { ProfilePage } from '../pages/profile/profile';
 
