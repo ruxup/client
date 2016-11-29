@@ -17,11 +17,10 @@ import { ApiService } from './api-service';
 */
 export class User {
   constructor(
+    public name: string,
     public email: string,
     public password: string) { }
 }
-
-let currentUser = {};
 
 @Injectable()
 export class AuthService {
@@ -32,8 +31,6 @@ export class AuthService {
   }
 
   login(user): Observable<string> {
-    currentUser = new User(user.email, user.password);
-    console.log(currentUser)
 
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
@@ -56,6 +53,28 @@ export class AuthService {
   logout() {
     console.log("logout");
     this.storage.clear();
+  }
+
+  register(user): Observable<string> {
+    var currentUser = new User(user.name, user.email, user.password);
+
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+  
+    let body = JSON.stringify({
+      name: currentUser.name,
+      email: currentUser.email,
+      password: currentUser.password
+    });
+
+    console.log(body);
+
+    let options = new RequestOptions({headers: headers});
+
+    return this.http
+      .post('http://ruxup.herokuapp.com/backend/public/index.php/api/register', body, options)
+        .map(res => res.json())
+        .catch((error: any) => Observable.throw(error));
   }
 
 }

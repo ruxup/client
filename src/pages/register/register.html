@@ -12,30 +12,28 @@
         <img class="ruxup-logo" src="assets/img/ruxup-logo.png" alt="">
     </div>
     <ion-list class="page-register__forms">
+        <form [formGroup]="user" (ngSubmit)='register()'>
+            <ion-item class="page-register__forms--input">
+                <ion-label floating>Name</ion-label>
+                <ion-input name="name" formControlName="name" type="name"></ion-input>
+            </ion-item>
+            <ion-item class="page-register__forms--input">
+                <ion-label floating>Email</ion-label>
+                <ion-input name="email" formControlName="email" type="email"></ion-input>
+            </ion-item>
 
-        <ion-item class="page-register__forms--input">
-            <ion-label floating>Name</ion-label>
-            <ion-input type="name"></ion-input>
-        </ion-item>
-        <ion-item class="page-register__forms--input">
-            <ion-label floating>Email</ion-label>
-            <ion-input type="email"></ion-input>
-        </ion-item>
+            <ion-item class="page-register__forms--input">
+                <ion-label floating>Password</ion-label>
+                <ion-input name="password" formControlName="password" type="password"></ion-input>
+            </ion-item>
 
-        <ion-item class="page-register__forms--input">
-            <ion-label floating>Password</ion-label>
-            <ion-input type="password"></ion-input>
-        </ion-item>
+            <ion-item class="page-register__forms--input">
+                <ion-label floating>Confirm Password</ion-label>
+                <ion-input name="confirm_password" formControlName="confirm_password" type="password"></ion-input>
+            </ion-item>
 
-        <ion-item class="page-register__forms--input">
-            <ion-label floating>Confirm Password</ion-label>
-            <ion-input type="password"></ion-input>
-        </ion-item>
-
-        <button ion-button block round class="page-register__forms--button dark-grey" (click)="register() ">REGISTER</button>
-
-        <button ion-button block round class="page-register__forms--button dark-grey" [hidden]="true" (click)="register()">REGISTER</button>
-
+            <button ion-button block round class="page-register__forms--button dark-grey" (click)="register()" [disabled]="!user.valid">REGISTER</button>
+        </form>
         <a class="page-register__forms--link" (click)="goBack()">Already have an account? Sign in here!</a>
     </ion-list>
 
