@@ -1,6 +1,6 @@
 import { NavController } from 'ionic-angular';
 import { Injectable } from '@angular/core';
-import { Http, Headers, Response, RequestOptions } from '@angular/http';
+import { Http, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
 
@@ -48,7 +48,7 @@ export class AuthService {
     let options = new RequestOptions({headers: headers});
 
     return this.http
-      .post('https://ruxup.herokuapp.com/backend/public/index.php/api/login', body, options)
+      .post('http://ruxup.herokuapp.com/backend/public/index.php/api/login', body, options)
         .map(res => res.json())
         .catch((error: any) => Observable.throw(error));
 }

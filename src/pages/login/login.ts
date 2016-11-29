@@ -52,7 +52,6 @@ export class LoginPage {
           console.log(err._body);
           this.presentToast(err._body);
           this.storage.clear();
-          this.navCtrl.setRoot(HomePage);
         });
 
       console.log('token: ', this.token);
