@@ -1,4 +1,3 @@
-import { NavController } from 'ionic-angular';
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs';
@@ -24,10 +23,18 @@ export class User {
 
 @Injectable()
 export class AuthService {
-  public token: string;
+  token: string;
 
-  constructor(public apiService: ApiService, public http: Http, public navCtrl: NavController, public storage: Storage) {
+  constructor(public apiService: ApiService, public http: Http, public storage: Storage) {
 
+  }
+
+  setToken(t: string) {
+    this.token = t;
+  }
+  
+  getToken(): string {
+    return this.token;
   }
 
   login(user): Observable<string> {
@@ -46,13 +53,24 @@ export class AuthService {
 
     return this.http
       .post('https://ruxup.herokuapp.com/backend/public/index.php/api/login', body, options)
-        .map(res => res.json())
+        .map(res => {
+          this.setToken(res.json()['token']); 
+          return res.json()
+        })
         .catch((error: any) => Observable.throw(error));
 }
 
-  logout() {
-    console.log("logout");
-    this.storage.clear();
+  logout(): Observable<string> {
+
+    let headers = new Headers();
+    headers.append('Token', this.token);
+
+    let options = new RequestOptions({headers: headers});
+
+    return this.http
+      .get('https://ruxup.herokuapp.com/backend/public/index.php/api/logout', options)
+        .map(res => res.json())
+        .catch((error: any) => Observable.throw(error));
   }
 
   register(user): Observable<string> {

@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { NavController, MenuController } from 'ionic-angular';
+
 import { Storage } from '@ionic/storage';
 import { AuthService } from '../../providers/auth-service';
 
 import { LoginPage } from '../login/login';
-
 
 /*
   Generated class for the Home page.
@@ -15,29 +15,33 @@ import { LoginPage } from '../login/login';
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html',
-  providers: [AuthService]
+  providers: []
 })
 export class HomePage {
-
-  movies: Array<any>;
-
+ 
   constructor(public navCtrl: NavController, 
               public menuCtrl: MenuController, 
               public storage: Storage,
               public authService: AuthService) {
     this.menuCtrl.swipeEnable(true);
+    console.log(authService.getToken());
   }
 
   ionViewDidLoad() {
-        
-     this.storage.get('token').then((val) => {
-       console.log('Token: ', val);
-     })
+    
   }
 
   logout() {
-    console.log('logout');
-    this.navCtrl.setRoot(LoginPage);
+    this.authService.logout()
+      .subscribe(
+        data => { 
+         console.log(data);
+        }
+        ,err => {
+          console.log(err);
+          this.storage.clear();
+          this.navCtrl.setRoot(LoginPage);
+        });
   }
 
 }

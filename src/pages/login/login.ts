@@ -17,11 +17,10 @@ import { HomePage } from '../home/home';
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html',
-  providers: [AuthService]
+  providers: []
 })
 export class LoginPage {
   user:any;
-  token:string;
 
   constructor(public storage: Storage, 
               public navCtrl: NavController, 
@@ -44,8 +43,6 @@ export class LoginPage {
     this.authService.login(this.user.value)
       .subscribe(
         data => { 
-          this.token = data; 
-          this.storage.set('token', data);
           this.navCtrl.setRoot(HomePage);
         }
         ,err => {
@@ -54,7 +51,7 @@ export class LoginPage {
           this.storage.clear();
         });
 
-      console.log('token: ', this.token);
+      
   }
 
   register() {
