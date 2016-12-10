@@ -18,7 +18,7 @@ import { ProfilePage } from '../pages/profile/profile';
     LoginPage,
     RegisterPage,
     HomePage,
-    ProfilePage
+    ProfilePage,
   ],
   imports: [
     IonicModule.forRoot(MyApp)
