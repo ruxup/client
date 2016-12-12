@@ -7,9 +7,18 @@
     </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-    <h3>Welcome, Ruxup!</h3>
+<ion-content class="page-home" no-padding>
+    <ion-grid text-center no-padding no-margin class="event__container">
+        <ion-row>
+            <ion-col id="find-event" class="event__item" width-50 no-padding [ngStyle]="{'background-image': 'url(assets/img/find-event.jpg)'}">
+                <div class="event__item-title">Find</div>
+                <div class="event__item-title event__item-title--small">Events</div>
+            </ion-col>
+            <ion-col id="create-event" class="event__item" width-50 no-padding [ngStyle]="{'background-image': 'url(assets/img/create-event.jpg)'}">
+                <div class="event__item-title">Create</div>
+                <div class="event__item-title event__item-title--small">Events</div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 
-
-    <button ion-button secondary (click)='logout()'>Logout</button>
 </ion-content>
