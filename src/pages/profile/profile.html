@@ -8,84 +8,15 @@
 </ion-header>
 
 <ion-content>
-    <!--<h3>Your Profile, Ruxup!</h3>-->
-    <ion-grid>
-        <ion-row id="profile-cover">
-            <ion-col width-100 class="cover">
-                <ion-item class="item-profile">
-                    <div class="item-avatar" class="image-cropper" text-center>
-                        <img src="http://www.electricvelocity.com.au/Upload/Blogs/smart-e-bike-side_2.jpg" class="rounded" />
-                    </div>
-                </ion-item>
-            </ion-col>
-        </ion-row>
-        <ion-row id="profile-buttons">
-            <ion-col width-100 class="">
-                <button ion-button color="light">Groups</button>
-                <button ion-button color="light">Events</button>
-                <button ion-button color="light">Button</button>
-                <button ion-button color="light">Button</button>
-            </ion-col>
-        </ion-row>
-        <ion-row id="profile-bio">
-            <ion-col width-100>
-                <ion-card>
-                    <ion-card-header text-center class="profile-bio__header">
-                        Bio
-                    </ion-card-header>
-                    <ion-list>
-                        <ion-item>
-                            Name: {{user.name}}
-                        </ion-item>
-                    </ion-list>
-                    <ion-list>
-                        <ion-item>
-                            Lastname:{{user.lastname}}
-                        </ion-item>
-                    </ion-list>
-                    <ion-list>
-                        <ion-item>
-                            Date of Birth: {{user.dateOfBirth}}
-                        </ion-item>
-                    </ion-list>
-                    <ion-list>
-                        <ion-item>
-                            Email:{{user.email}}
-                        </ion-item>
-                    </ion-list>
-                </ion-card>
-            </ion-col>
-        </ion-row>
-        <ion-row id="profile-history">
-            <ion-col width-100>
-                <ion-card>
-                    <ion-card-header text-center class="profile-bio__header">
-                        Description
-                    </ion-card-header>
-                    <ion-list>
-                        <ion-item>
-                            {{user.description}}
-                        </ion-item>
-                    </ion-list>
+    <div class="profile__cover" [ngStyle]="{'background-image': 'url(' + user?.cover_pic + ')'}">
+        <ion-grid>
+            <ion-row>
+                <ion-col text-center>
+                    <img class="profile__avatar" [src]="user?.profile_pic" alt="">
+                    <h2 class="profile__name" no-padding no-margin text-uppercase>{{user?.name}}</h2>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
 
-                </ion-card>
-            </ion-col>
-        </ion-row>
-        <ion-row id="profile-logactivity">
-            <ion-col width-100 class="">
-                <ion-card>
-                    <ion-card-header text-center class="profile-bio__header">
-                        Log Activity
-                    </ion-card-header>
-                    <ion-list>
-                        <ion-item>
-                            <ion-avatar item-left>
-                            </ion-avatar>
-                        </ion-item>
-                    </ion-list>
-                </ion-card>
-            </ion-col>
-        </ion-row>
-        <!--<button ion-button block  (click)='logout()'>Delete</button>-->
-    </ion-grid>
+    </div>
 </ion-content>

@@ -6,6 +6,7 @@ import { MyApp } from './app.component';
 
 import { AuthService } from '../providers/auth-service';
 import { ApiService } from '../providers/api-service';
+import { ProfileService } from '../providers/profile-service';
 
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
@@ -31,6 +32,6 @@ import { ProfilePage } from '../pages/profile/profile';
     HomePage,
     ProfilePage
   ],
-  providers: [Storage, ApiService, AuthService]
+  providers: [Storage, ApiService, AuthService, ProfileService]
 })
 export class AppModule {}
