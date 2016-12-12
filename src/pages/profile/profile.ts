@@ -17,19 +17,8 @@ import { ProfileService } from '../../providers/profile-service';
 })
 export class ProfilePage {
   user: User;
-  bg: String;
 
   constructor(public navCtrl: NavController, private profileService: ProfileService) {
-    // this.user = {
-    //   name: "armin",
-    //   lastname: "roshan",
-    //   dateOfBirth: "may/24/1990",
-    //   email: 'aaaaa@bbb.com',
-    //   description: "description come here! description come here! description come here!",
-    //   image:""
-    // };
-    this.bg = '#000';
-
   }
 
   ngOnInit() {

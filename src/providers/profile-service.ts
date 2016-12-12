@@ -13,20 +13,9 @@ import { AuthService } from './auth-service';
   See https://angular.io/docs/ts/latest/guide/dependency-injection.html
   for more info on providers and Angular 2 DI.
 */
-let user = {};
 
 @Injectable()
 export class ProfileService {
-  
-  user = {
-      name: "armin",
-      lastname: "roshan",
-      dateOfBirth: "may/24/1990",
-      email: 'aaaaa@bbb.com',
-      description: "description come here! description come here! description come here!",
-      image:""
-    };
-
   token: string;
 
   constructor(public http: Http, private authService: AuthService) {
