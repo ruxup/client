@@ -4,8 +4,6 @@ import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
 
 import { Storage } from '@ionic/storage';
-
-
 import { ApiService } from './api-service';
 
 /*

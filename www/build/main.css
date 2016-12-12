@@ -19692,38 +19692,34 @@ sub {
   background-position: 0;
 }
 
-.item-profile {
-  height: 150px;
+.profile__cover {
+  background-repeat: no-repeat;
+  height: 220px;
+  background-size: cover;
+  display: -webkit-flex !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-align-content: center !important;
+  -ms-flex-line-pack: center !important;
+  align-content: center !important;
+  -webkit-align-items: center !important;
+  -ms-flex-align: center !important;
+  align-items: center !important;
 }
 
-.item-profile .item-avatar > img:first-child {
-  max-width: 100px;
-  max-height: 100px;
-}
-
-.image-cropper {
+.profile__avatar {
   width: 100px;
   height: 100px;
-  position: relative;
-  overflow: hidden;
+  background-size: cover;
+  background-position: center;
   border-radius: 50%;
-  margin: auto;
+  margin-top: 15px;
 }
 
-img {
-  display: inline;
-  margin: 0 auto;
-  height: 100%;
-  width: auto;
-}
-
-.profile-bio__header {
+.profile__name {
+  padding-top: 5px;
   color: white;
-  background-color: #858585;
-}
-
-.button--gray {
-  background-color: #858585;
+  font-weight: bold;
 }
 
 .page-register {
