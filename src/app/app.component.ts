@@ -22,7 +22,9 @@ export class MyApp {
 
   pages: Array<{ title: string, component: any }>;
 
-  constructor(public platform: Platform, public authService: AuthService, public storage: Storage) {
+  constructor(public platform: Platform, 
+              public authService: AuthService, 
+              public storage: Storage) {
 
     this.initializeApp();
 
@@ -49,6 +51,22 @@ export class MyApp {
   openPage(page) {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
+    if(page.title == "Logout") {
+      this.logout();
+    }
     this.nav.setRoot(page.component);
+  }
+
+  logout() {
+    this.authService.logout()
+      .subscribe(
+        data => { 
+         console.log(data);
+        }
+        ,err => {
+          console.log(err);
+          this.storage.clear();
+          this.nav.setRoot(LoginPage);
+        });
   }
 }
