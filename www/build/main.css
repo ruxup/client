@@ -19644,6 +19644,12 @@ sub {
   }
 }
 
+.create-event-page {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: red;
+}
+
 .page-home .event__container {
   display: -webkit-flex !important;
   display: -ms-flexbox !important;

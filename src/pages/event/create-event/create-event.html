@@ -11,15 +11,27 @@
         </ion-buttons>
     </ion-toolbar>
 </ion-header>
-<ion-content>
-    <ion-list>
-        <ion-item>
-            <ion-avatar item-left>
-
-            </ion-avatar>
-            <h2>Name</h2>
-
+<ion-content class="create-event-page" [ngStyle]="{'background-image': 'url(assets/img/create-event-big.jpg)'}">
+    <form [formGroup]="event" (ngSubmit)='create()'>
+        <ion-item class="page-register__forms--input">
+            <ion-label floating>Name</ion-label>
+            <ion-input name="name" formControlName="name" type="name"></ion-input>
+        </ion-item>
+        <ion-item class="page-register__forms--input">
+            <ion-label floating>Email</ion-label>
+            <ion-input name="email" formControlName="email" type="email"></ion-input>
         </ion-item>
 
-    </ion-list>
+        <ion-item class="page-register__forms--input">
+            <ion-label floating>Password</ion-label>
+            <ion-input name="password" formControlName="password" type="password"></ion-input>
+        </ion-item>
+
+        <ion-item class="page-register__forms--input">
+            <ion-label floating>Confirm Password</ion-label>
+            <ion-input name="confirm_password" formControlName="confirm_password" type="password"></ion-input>
+        </ion-item>
+
+        <button ion-button block round class="page-register__forms--button dark-grey" (click)="register()" [disabled]="!event.valid">REGISTER</button>
+    </form>
 </ion-content>
