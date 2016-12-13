@@ -1,3 +1,39 @@
-page-home {
+.page-home {
+    .event {
+        &__container {
+            display: flex!important;
+            align-content: center!important;
+            align-items: center!important;
+        }
+        &__item {
+            height: 250px;
+            color: white;
+            position: relative;
+            &-title {
+                position: absolute;
+                top: 36%;
+                font-size: 2.5em;
+                width: 100%;
+                font-weight: bold;
+                color: #fff;
+                &--small {
+                    font-size: 1.3em;
+                    position: absolute;
+                    top: 53%;
+                    width: 100%;
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
 
+#create-event {
+    background-size: cover;
+    background-position-x: -150px;
+}
+
+#find-event {
+    background-size: cover;
+    background-position-x: -55px;
 }

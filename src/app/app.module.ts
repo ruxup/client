@@ -11,6 +11,8 @@ import { ProfileService } from '../providers/profile-service';
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
 import { HomePage } from '../pages/home/home';
+import { FindEventPage } from '../pages/event/find-event/find-event';
+import { CreateEventPage } from '../pages/event/create-event/create-event';
 import { ProfilePage } from '../pages/profile/profile';
 
 @NgModule({
@@ -19,6 +21,8 @@ import { ProfilePage } from '../pages/profile/profile';
     LoginPage,
     RegisterPage,
     HomePage,
+    FindEventPage,
+    CreateEventPage,
     ProfilePage,
   ],
   imports: [
@@ -30,7 +34,9 @@ import { ProfilePage } from '../pages/profile/profile';
     LoginPage,
     RegisterPage,
     HomePage,
-    ProfilePage
+    FindEventPage,
+    CreateEventPage,
+    ProfilePage,
   ],
   providers: [Storage, ApiService, AuthService, ProfileService]
 })

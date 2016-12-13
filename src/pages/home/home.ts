@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
-import { NavController, MenuController } from 'ionic-angular';
+import { NavController, ModalController, MenuController } from 'ionic-angular';
 
 import { Storage } from '@ionic/storage';
 import { AuthService } from '../../providers/auth-service';
 
 import { LoginPage } from '../login/login';
+import { FindEventPage } from '../event/find-event/find-event';
+import { CreateEventPage } from '../event/create-event/create-event';
 
 /*
   Generated class for the Home page.
@@ -15,14 +17,15 @@ import { LoginPage } from '../login/login';
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html',
-  providers: []
+  providers: [],
 })
 export class HomePage {
  
   constructor(public navCtrl: NavController, 
               public menuCtrl: MenuController, 
               public storage: Storage,
-              public authService: AuthService) {
+              public authService: AuthService,
+              public modalCtrl: ModalController) {
     this.menuCtrl.swipeEnable(true);
     console.log(authService.getToken());
   }
@@ -42,6 +45,16 @@ export class HomePage {
           this.storage.clear();
           this.navCtrl.setRoot(LoginPage);
         });
+  }
+
+  openFindEvents() {
+    let modal = this.modalCtrl.create(FindEventPage);
+    modal.present();
+  }
+
+  openCreateEvents() {
+    let modal = this.modalCtrl.create(CreateEventPage);
+    modal.present();
   }
 
 }
