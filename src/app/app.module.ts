@@ -7,6 +7,7 @@ import { MyApp } from './app.component';
 import { AuthService } from '../providers/auth-service';
 import { ApiService } from '../providers/api-service';
 import { ProfileService } from '../providers/profile-service';
+import { EventService } from '../providers/event-service';
 
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
@@ -38,6 +39,10 @@ import { ProfilePage } from '../pages/profile/profile';
     CreateEventPage,
     ProfilePage,
   ],
-  providers: [Storage, ApiService, AuthService, ProfileService]
+  providers: [Storage, 
+              ApiService, 
+              AuthService, 
+              ProfileService,
+              EventService]
 })
 export class AppModule {}
