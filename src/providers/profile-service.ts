@@ -32,4 +32,14 @@ export class ProfileService {
       .map(res => <User>res.json());
   }
 
+  edit(): Observable<string> {
+    let headers = new Headers();
+    headers.append('Token', this.token);
+
+    let options = new RequestOptions({headers: headers});
+
+    return this.http.get('https://ruxup.herokuapp.com/backend/public/index.php/api/profile', options)
+      .map(res => <string>res.json());
+  }
+
 }
