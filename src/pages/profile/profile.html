@@ -1,22 +1,78 @@
 <ion-header>
-    <ion-navbar>
-        <button ion-button menuToggle>
+  <ion-navbar>
+    <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-        <ion-title>Profile</ion-title>
-    </ion-navbar>
+    <ion-title>Profile</ion-title>
+  </ion-navbar>
 </ion-header>
 
 <ion-content>
-    <div class="profile__cover" [ngStyle]="{'background-image': 'url(' + user?.cover_pic + ')'}">
-        <ion-grid>
-            <ion-row>
-                <ion-col text-center>
-                    <img class="profile__avatar" [src]="user?.profile_pic" alt="">
-                    <h2 class="profile__name" no-padding no-margin text-uppercase>{{user?.name}}</h2>
-                </ion-col>
-            </ion-row>
-        </ion-grid>
+  <div class="profile__cover" [ngStyle]="{'background-image': 'url(' + user?.cover_pic + ')'}">
+    <ion-grid>
+      <ion-row>
+        <ion-col text-center>
+          <img class="profile__avatar" [src]="user?.profile_pic" alt="">
+          <h2 class="profile__name" no-padding no-margin text-uppercase>{{user?.name}}</h2>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <div class="profile__tab">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <!-- Segment in a form -->
 
-    </div>
+          <ion-segment [(ngModel)]="tabs">
+            <ion-segment-button value="bio">
+              Bio
+            </ion-segment-button>
+            <ion-segment-button value="events">
+              Events
+            </ion-segment-button>
+            <ion-segment-button value="activity">
+              Activity
+            </ion-segment-button>
+          </ion-segment>
+          <div [ngSwitch]="tabs">
+            <ion-list *ngSwitchCase="'bio'">
+
+              <!--<ion-item>-->
+                  <!--<ion-item>-->
+                    <!--<ion-label>Email</ion-label>-->
+                    <!--<ion-input></ion-input>-->
+                    <!--<ion-label>City</ion-label>-->
+                    <!--<ion-input></ion-input>-->
+                    <!--<ion-label>Nationality</ion-label>-->
+                    <!--<ion-input></ion-input>-->
+                    <!--<ion-label>Date of birth</ion-label>-->
+                    <!--<ion-input></ion-input>-->
+                    <!--<ion-label>Description</ion-label>-->
+                    <!--<ion-input></ion-input>-->
+                  <!--</ion-item>-->
+              <!--</ion-item>-->
+              <h1>Bio</h1>
+            </ion-list>
+            <ion-list *ngSwitchCase="'events'">
+              <ion-item>
+                <ion-thumbnail>
+                    <h1>events</h1>
+                </ion-thumbnail>
+              </ion-item>
+            </ion-list>
+            <ion-list *ngSwitchCase="'activity'">
+              <ion-item>
+                <ion-thumbnail>
+                  <h1>
+                    activity log
+                  </h1>
+                </ion-thumbnail>
+              </ion-item>
+            </ion-list>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
 </ion-content>
