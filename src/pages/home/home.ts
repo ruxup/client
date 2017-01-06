@@ -8,6 +8,12 @@ import { LoginPage } from '../login/login';
 import { FindEventPage } from '../event/find-event/find-event';
 import { CreateEventPage } from '../event/create-event/create-event';
 
+
+enum Fruit {
+	Apple, Orange, Melon, Banana, Pear,
+}
+
+
 /*
   Generated class for the Home page.
 
@@ -21,6 +27,11 @@ import { CreateEventPage } from '../event/create-event/create-event';
 })
 export class HomePage {
  
+default: string = '1 1-2 1-2-2';
+	simpleColumns: any[];
+	independentColumns: any[];
+	cityPickerOption: any[];
+	datetime;
   constructor(public navCtrl: NavController, 
               public menuCtrl: MenuController, 
               public storage: Storage,
@@ -28,6 +39,35 @@ export class HomePage {
               public modalCtrl: ModalController) {
     this.menuCtrl.swipeEnable(true);
     console.log(authService.getToken());
+    this.simpleColumns = [
+			{
+				name: 'col1',
+				options: [{ text: '1', value: '1' },
+					{ text: '2', value: '2' },
+					{ text: '3', value: '3' }]
+			},
+			{
+				name: 'col2',
+				options: [{ text: '1-1', value: '1-1' },
+					{ text: '1-2', value: '1-2' },
+					{ text: '2-1', value: '2-1' },
+					{ text: '2-2', value: '2-2' },
+					{ text: '3-1', value: '3-1' },]
+			},
+			{
+				name: 'col3',
+				options: [{ text: '1-1-1', value: '1-1-1' },
+					{ text: '1-1-2', value: '1-1-2' },
+					{ text: '1-2-1', value: '1-2-1' },
+					{ text: '1-2-2', value: '1-2-2' },
+					{ text: '2-1-1', value: '2-1-1' },
+					{ text: '2-1-2', value: '2-1-2' },
+					{ text: '2-2-1', value: '2-2-1' },
+					{ text: '2-2-2', value: '2-2-2' },
+					{ text: '3-1-1', value: '3-1-1' },
+					{ text: '3-1-2', value: '3-1-2' },]
+			}
+		];
   }
 
   ionViewDidLoad() {

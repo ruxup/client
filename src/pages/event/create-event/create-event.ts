@@ -4,33 +4,37 @@ import { Validators, FormBuilder, FormControl } from '@angular/forms';
 
 import { EventService } from '../../../providers/event-service';
 
+
 @Component({
   templateUrl: 'create-event.html',
   providers: [EventService]
 })
 
 export class CreateEventPage {
-  background_image: string;
   event: any;
   transferDate: string;
-  myDate: String = new Date().toISOString();
+  startDate: String;
+  endDate: String;
+  categories: any;
+  locations: any;
 
   constructor(public params: NavParams,
     public viewCtrl: ViewController,
     public eventService: EventService,
     public formBuilder: FormBuilder, ) {
-    this.background_image = 'assets/img/create-event-big.jpg';
-    this.myDate = new Date().toISOString();
-    this.event = this.formBuilder.group({
-      'name': ['', Validators.required],
-      // 'email': ['', Validators.required],
-      // 'password': ['', Validators.required],
-      // 'confirm_password': ['', Validators.required]
-    });
+    this.startDate = new Date().toISOString();
+    this.endDate = new Date(Date.now() + 86400000).toISOString();
+    this.event = {
+      name: '',
+      category: '',
+      location: '',
+      start: '',
+      end: '',
+    };
+
   }
 
   ionViewLoaded() {
-    this.todayDate(this.transferDate);
   }
 
   dismiss() {
@@ -38,7 +42,10 @@ export class CreateEventPage {
   }
 
   create(): void {
-    this.eventService.create()
+    this.event.start = this.formatDate(this.startDate);
+    this.event.end = this.formatDate(this.endDate);
+    console.log(this.event);
+    this.eventService.create(this.event)
       .subscribe(
       data => {
         console.log(data);
@@ -48,10 +55,11 @@ export class CreateEventPage {
       );
   }
 
-  todayDate(datetoDay: string): void {
-    let utc = new Date().toJSON().slice(0, 10);
-    if (datetoDay === undefined) {
-      this.transferDate = utc;
+  formatDate(d: String): String {
+    if (d != null) {
+        d = d.replace("T", ' ');
+        d = d.replace("Z", '');
+        return d.replace(/\.[0-9]{3}/, '');
     }
   }
 }
