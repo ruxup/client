@@ -3,24 +3,22 @@ import { Http, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
 
-import { Event } from '../models/event';
-
 import { AuthService } from './auth-service';
-import { ProfileService } from './profile-service';
+import { User } from '../models/user';
 
 @Injectable()
 export class EventService {
-    token: string;
-    userID: string;
+token: string;
 
-    constructor(public http: Http, public authService: AuthService, public profileService: ProfileService) {
-        this.token = authService.getToken();
-    }
+  constructor(public http: Http, private authService: AuthService) {
+     this.token = authService.getToken();
+  }
 
-    create(event): Observable<string> {
-        
+    create(token, event): Observable<string> {
+
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
+        headers.append('Token', token);
 
         // let body = JSON.stringify({
         //     name: 'Event test1',
@@ -31,25 +29,13 @@ export class EventService {
         //     owner_id: '54'
         // });
 
-        // load owner id
-        this.profileService.getUserID()
-            .subscribe(
-                data => {
-                    console.log(data);
-                    this.userID = data;
-                    console.log(data);
-                }, err => {
-                    console.log(err._body);
-                }
-            );
-
         let body = JSON.stringify({
             name: event.name,
             location: event.location,
             start_time: event.start,
             end_time: event.end,
             category: event.category,
-            owner_id: this.userID
+            owner_id: event.owner_id
         });
 
         console.log(body);
@@ -61,5 +47,15 @@ export class EventService {
             .map(res => res.json())
             .catch((error: any) => Observable.throw(error));
     }
-   
+
+    load(): Observable<User> {
+    let headers = new Headers();
+    headers.append('Token', this.token);
+
+    let options = new RequestOptions({headers: headers});
+
+    return this.http.get('https://ruxup.herokuapp.com/backend/public/index.php/api/profile', options)
+      .map(res => <User>res.json());
+  }
+
 }

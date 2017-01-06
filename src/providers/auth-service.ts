@@ -22,6 +22,7 @@ export class User {
 @Injectable()
 export class AuthService {
   token: string;
+  id: number;
 
   constructor(public apiService: ApiService, public http: Http, public storage: Storage) {
 
@@ -33,6 +34,14 @@ export class AuthService {
   
   getToken(): string {
     return this.token;
+  }
+
+  setUserID(i: number): void {
+    this.id = i;
+  }
+
+  getUserID() {
+    return this.id;
   }
 
   login(user): Observable<string> {

@@ -21,6 +21,7 @@ export class ProfileService {
   constructor(public http: Http, private authService: AuthService) {
      this.token = authService.getToken();
      console.log("token: " + this.token);
+     console.log("id: " + authService.getUserID());
 
   }
 
@@ -45,7 +46,7 @@ export class ProfileService {
   }
 
   
-  getUserID(): Observable<string> {
+  getUserID(): Observable<number> {
     let headers = new Headers();
     headers.append('Token', this.token);
 
