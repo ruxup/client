@@ -50,6 +50,8 @@
                     <ion-label>Description</ion-label>
                     <ion-input></ion-input>
               </ion-item>
+              <button ion-button full color="red">Delete account</button>
+
 
             </ion-list>
             <ion-list *ngSwitchCase="'events'">
@@ -76,7 +78,7 @@
             </ion-list>
             <ion-list *ngSwitchCase="'activity'">
               <ion-item>
-                  <ion-list-header>
+                  <ion-list-header align="center">
                     Actions
                   </ion-list-header>
                   <ion-item>activity 1</ion-item>
@@ -87,6 +89,7 @@
           </div>
         </ion-col>
       </ion-row>
+
     </ion-grid>
   </div>
 </ion-content>

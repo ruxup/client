@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { IonicApp, IonicModule } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
+import { FormsModule } from "@angular/forms";
 
 import { MyApp } from './app.component';
 
@@ -15,6 +16,9 @@ import { HomePage } from '../pages/home/home';
 import { FindEventPage } from '../pages/event/find-event/find-event';
 import { CreateEventPage } from '../pages/event/create-event/create-event';
 import { ProfilePage } from '../pages/profile/profile';
+//
+// import { MultiPickerModule } from 'ion-multi-picker';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +31,9 @@ import { ProfilePage } from '../pages/profile/profile';
     ProfilePage,
   ],
   imports: [
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    // MultiPickerModule,
+    FormsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -39,9 +45,9 @@ import { ProfilePage } from '../pages/profile/profile';
     CreateEventPage,
     ProfilePage,
   ],
-  providers: [Storage, 
-              ApiService, 
-              AuthService, 
+  providers: [Storage,
+              ApiService,
+              AuthService,
               ProfileService,
               EventService]
 })

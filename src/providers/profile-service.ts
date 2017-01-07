@@ -20,6 +20,9 @@ export class ProfileService {
 
   constructor(public http: Http, private authService: AuthService) {
      this.token = authService.getToken();
+     console.log("token: " + this.token);
+     console.log("id: " + authService.getUserID());
+
   }
 
   load(): Observable<User> {
@@ -40,6 +43,20 @@ export class ProfileService {
 
     return this.http.get('https://ruxup.herokuapp.com/backend/public/index.php/api/profile', options)
       .map(res => <string>res.json());
+  }
+
+  
+  getUserID(): Observable<number> {
+    let headers = new Headers();
+    headers.append('Token', this.token);
+
+    let options = new RequestOptions({headers: headers});
+
+    return this.http.get('https://ruxup.herokuapp.com/backend/public/index.php/api/profile', options)
+      .map(res => {
+          return (res.json()['id']);
+        })
+        .catch((error: any) => Observable.throw(error));
   }
 
 }

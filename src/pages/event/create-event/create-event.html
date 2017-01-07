@@ -11,27 +11,44 @@
         </ion-buttons>
     </ion-toolbar>
 </ion-header>
-<ion-content class="create-event-page" [ngStyle]="{'background-image': 'url(assets/img/create-event-big.jpg)'}">
-    <form [formGroup]="event" (ngSubmit)='create()'>
-        <ion-item class="page-register__forms--input">
-            <ion-label floating>Name</ion-label>
-            <ion-input name="name" formControlName="name" type="name"></ion-input>
-        </ion-item>
-        <ion-item class="page-register__forms--input">
-            <ion-label floating>Email</ion-label>
-            <ion-input name="email" formControlName="email" type="email"></ion-input>
-        </ion-item>
+<ion-content padding class="page-create-event" [ngStyle]="{'background-image': 'url(assets/img/create-event-big-2.jpg)'}">
+    <ion-list class="page-create-event__forms">
+        <form (ngSubmit)='create()'>
+            <ion-item class="page-create-event__forms--input">
+                <ion-label stacked>Event Name</ion-label>
+                <ion-input name="name" type="name" [(ngModel)]="event.name" placeholder="Your Event"></ion-input>
+            </ion-item>
+            <ion-item class="page-create-event__forms--input">
+                <ion-label floating>Category</ion-label>
+                <ion-select name="category" [(ngModel)]="event.category" type="text">
+                    <ion-option>Adventure</ion-option>
+                    <ion-option>Sport</ion-option>
+                    <ion-option>Food</ion-option>
+                    <ion-option>Party</ion-option>
+                    <ion-option>Concert</ion-option>
+                    <ion-option>Sightseeing</ion-option>
+                </ion-select>
+            </ion-item>
 
-        <ion-item class="page-register__forms--input">
-            <ion-label floating>Password</ion-label>
-            <ion-input name="password" formControlName="password" type="password"></ion-input>
-        </ion-item>
+            <ion-item class="page-create-event__forms--input">
+                <ion-label stacked>Start Date</ion-label>
+                <ion-datetime displayFormat="D MMM YYYY" min="{{startDate}}" max="2018-12-31" [(ngModel)]="startDate" [ngModelOptions]="{standalone: true}"></ion-datetime>
+            </ion-item>
+            <ion-item class="page-create-event__forms--input">
+                <ion-label stacked>End Date</ion-label>
+                <ion-datetime displayFormat="D MMM YYYY" min="2016" max="2018-12-31" [(ngModel)]="endDate" [ngModelOptions]="{standalone: true}"></ion-datetime>
+            </ion-item>
+            <ion-item class="page-create-event__forms--input">
+                <ion-label floating>Location</ion-label>
+                <ion-select name="location" [(ngModel)]="event.location" type="text">
+                    <ion-option>Asia</ion-option>
+                    <ion-option>Europe</ion-option>
+                    <ion-option>America</ion-option>
+                    <ion-option>Australia</ion-option>
+                </ion-select>
+            </ion-item>
 
-        <ion-item class="page-register__forms--input">
-            <ion-label floating>Confirm Password</ion-label>
-            <ion-input name="confirm_password" formControlName="confirm_password" type="password"></ion-input>
-        </ion-item>
-
-        <button ion-button block round class="page-register__forms--button dark-grey" (click)="register()" [disabled]="!event.valid">REGISTER</button>
-    </form>
+            <button ion-button block round class="page-create-event__forms--button dark-grey" type="submit">Create Event</button>
+        </form>
+    </ion-list>
 </ion-content>

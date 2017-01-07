@@ -3,10 +3,12 @@ import { NavController, ModalController, MenuController } from 'ionic-angular';
 
 import { Storage } from '@ionic/storage';
 import { AuthService } from '../../providers/auth-service';
+import { ProfileService } from '../../providers/profile-service';
 
 import { LoginPage } from '../login/login';
 import { FindEventPage } from '../event/find-event/find-event';
 import { CreateEventPage } from '../event/create-event/create-event';
+import { User } from '../../models/user';
 
 /*
   Generated class for the Home page.
@@ -17,21 +19,32 @@ import { CreateEventPage } from '../event/create-event/create-event';
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html',
-  providers: [],
+  providers: [ProfileService],
 })
 export class HomePage {
- 
+  user: User;
   constructor(public navCtrl: NavController, 
               public menuCtrl: MenuController, 
               public storage: Storage,
-              public authService: AuthService,
-              public modalCtrl: ModalController) {
+              private authService: AuthService,
+              public modalCtrl: ModalController,
+              private profileService: ProfileService) {
     this.menuCtrl.swipeEnable(true);
-    console.log(authService.getToken());
   }
 
   ionViewDidLoad() {
-    
+
+  }
+
+  ngOnInit() {
+    this.profileService.load()
+      .subscribe(data => {
+        this.user = data['user'];
+        this.user.profile_pic = 'https://api.adorable.io/avatars/120/default';
+        this.user.cover_pic = "https://images.unsplash.com/photo-1481204287293-36160be24f29";
+        this.authService.setUserID(data['user'].id);
+      });
+
   }
 
   logout() {
@@ -53,7 +66,8 @@ export class HomePage {
   }
 
   openCreateEvents() {
-    let modal = this.modalCtrl.create(CreateEventPage);
+    console.log(this.authService.getUserID());
+    let modal = this.modalCtrl.create(CreateEventPage, {"owner_id": this.user.id});
     modal.present();
   }
 
