@@ -44,6 +44,25 @@
             }
         }
     }
+    .feeds {
+        margin-top: -20px;
+        &__title {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        &__timeline {
+            padding: 2em 0;
+            &:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 18px;
+                height: 100%;
+                width: 4px;
+                background: #d7e4ed;
+            }
+        }
+    }
 }
 
 #event_container {
