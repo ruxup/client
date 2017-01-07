@@ -10,13 +10,29 @@
 <ion-content class="page-home" no-padding>
     <ion-grid text-center no-padding no-margin class="event__container">
         <ion-row>
-            <ion-col id="find-event" class="event__item" width-50 no-padding (click)="openFindEvents()" [ngStyle]="{'background-image': 'url(assets/img/find-event.jpg)'}">
-                <div class="event__item-title">Find</div>
-                <div class="event__item-title event__item-title--small">Events</div>
+            <ion-col class="header" width-100 no-padding>
+                <ion-slides [options]="mySlideOptions">
+                    <ion-slide>
+                        <img class="img-responsive" src="assets/img/home.jpg" />
+                        <div class="card-title">Hey, Welcome to Ruxup!</div>
+                    </ion-slide>
+                    <ion-slide>
+                        <img class="img-responsive" src="assets/img/home2.jpg" />
+                        <div class="card-title">Discover new destinations</div>
+                    </ion-slide>
+                    <ion-slide>
+                        <img class="img-responsive" src="assets/img/home3.jpg" />
+                        <div class="card-title">Share travel experiences</div>
+                    </ion-slide>
+                </ion-slides>
             </ion-col>
-            <ion-col id="create-event" class="event__item" width-50 no-padding (click)="openCreateEvents()" [ngStyle]="{'background-image': 'url(assets/img/create-event.jpg)'}">
-                <div class="event__item-title">Create</div>
-                <div class="event__item-title event__item-title--small">Events</div>
+        </ion-row>
+        <ion-row id="event_container" center>
+            <ion-col text-center id="find-event" class="event__item" width-33 no-padding (click)="openFindEvents()" [ngStyle]="{'background-image': 'url(assets/img/find-event.jpg)'}">
+                <div class="event__item-title">Find Event</div>
+            </ion-col>
+            <ion-col text-center id="create-event" class="event__item" width-33 no-padding (click)="openCreateEvents()" [ngStyle]="{'background-image': 'url(assets/img/create-event.jpg)'}">
+                <div class="event__item-title">Create Event</div>
             </ion-col>
         </ion-row>
     </ion-grid>

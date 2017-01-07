@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, ModalController, MenuController } from 'ionic-angular';
+import { Slides } from 'ionic-angular';
 
 import { Storage } from '@ionic/storage';
 import { AuthService } from '../../providers/auth-service';
@@ -23,6 +24,12 @@ import { User } from '../../models/user';
 })
 export class HomePage {
   user: User;
+   mySlideOptions = {
+    initialSlide: 1,
+    loop: true,
+    pager:true
+   };
+
   constructor(public navCtrl: NavController, 
               public menuCtrl: MenuController, 
               public storage: Storage,
