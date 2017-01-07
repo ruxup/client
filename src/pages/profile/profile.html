@@ -37,37 +37,51 @@
           </ion-segment>
           <div [ngSwitch]="tabs">
             <ion-list *ngSwitchCase="'bio'">
+              <ion-item>
+                    <ion-label color="primary" stacked align="center"> </ion-label>
+                    <ion-label >Email</ion-label>
+                    <ion-input></ion-input>
+                    <ion-label>City</ion-label>
+                    <ion-input></ion-input>
+                    <ion-label>Nationality</ion-label>
+                    <ion-input></ion-input>
+                    <ion-label>Date of birth</ion-label>
+                    <ion-input></ion-input>
+                    <ion-label>Description</ion-label>
+                    <ion-input></ion-input>
+              </ion-item>
 
-              <!--<ion-item>-->
-                  <!--<ion-item>-->
-                    <!--<ion-label>Email</ion-label>-->
-                    <!--<ion-input></ion-input>-->
-                    <!--<ion-label>City</ion-label>-->
-                    <!--<ion-input></ion-input>-->
-                    <!--<ion-label>Nationality</ion-label>-->
-                    <!--<ion-input></ion-input>-->
-                    <!--<ion-label>Date of birth</ion-label>-->
-                    <!--<ion-input></ion-input>-->
-                    <!--<ion-label>Description</ion-label>-->
-                    <!--<ion-input></ion-input>-->
-                  <!--</ion-item>-->
-              <!--</ion-item>-->
-              <h1>Bio</h1>
             </ion-list>
             <ion-list *ngSwitchCase="'events'">
               <ion-item>
-                <ion-thumbnail>
-                    <h1>events</h1>
+                <ion-label color="primary" stacked align="center"> </ion-label>
+                    <ion-thumbnail item-left>
+                      <img src="">
+                    </ion-thumbnail>
+                      <h2>Event title</h2>
+                      <p>Small intro</p>
+                    <button ion-button clear item-right>Join</button>
+              </ion-item>
+              <ion-item>
+                <ion-label color="primary" stacked align="center"> </ion-label>
+                <ion-thumbnail item-left>
+                  <img src="">
                 </ion-thumbnail>
+                <ion-thumbnail>
+                  <h2>Event title</h2>
+                  <p>Small intro</p>
+                </ion-thumbnail>
+                <button ion-button clear item-right>Join</button>
               </ion-item>
             </ion-list>
             <ion-list *ngSwitchCase="'activity'">
               <ion-item>
-                <ion-thumbnail>
-                  <h1>
-                    activity log
-                  </h1>
-                </ion-thumbnail>
+                  <ion-list-header>
+                    Actions
+                  </ion-list-header>
+                  <ion-item>activity 1</ion-item>
+                  <ion-item>activity 2</ion-item>
+                  <ion-item>activity 3</ion-item>
               </ion-item>
             </ion-list>
           </div>
