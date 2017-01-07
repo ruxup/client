@@ -36905,6 +36905,29 @@ sub {
   line-height: 1;
 }
 
+.page-home .feeds {
+  margin-top: -20px;
+}
+
+.page-home .feeds__title {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.page-home .feeds__timeline {
+  padding: 2em 0;
+}
+
+.page-home .feeds__timeline:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 18px;
+  height: 100%;
+  width: 4px;
+  background: #d7e4ed;
+}
+
 #event_container {
   z-index: 9;
   -webkit-transform: translateY(-25%);
