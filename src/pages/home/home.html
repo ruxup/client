@@ -29,17 +29,19 @@
         </ion-row>
         <ion-row id="event_container" center>
             <ion-col text-center id="find-event" class="event__item" width-33 no-padding (click)="openFindEvents()" [ngStyle]="{'background-image': 'url(assets/img/find-event.jpg)'}">
+                <div class="overlay"></div>
                 <div class="event__item-title">Find Event</div>
             </ion-col>
             <ion-col text-center id="create-event" class="event__item" width-33 no-padding (click)="openCreateEvents()" [ngStyle]="{'background-image': 'url(assets/img/create-event.jpg)'}">
+                <div class="overlay"></div>
                 <div class="event__item-title">Create Event</div>
             </ion-col>
         </ion-row>
 
         <ion-row id="feeds" class="feeds__container" padding>
-
             <ion-col width-100>
-                <ion-card>
+                <h3>Feeds</h3>
+                <ion-card no-padding>
                     <ion-item>
                         <ion-avatar item-left>
                             <img src="https://ionicframework.com/dist/preview-app/www/assets/img/marty-avatar.png">
@@ -47,25 +49,22 @@
                         <h2>Marty McFly</h2>
                         <p>November 5, 1955</p>
                     </ion-item>
-
                     <img src="https://ionicframework.com/dist/preview-app/www/assets/img/advance-card-bttf.png">
-
                     <ion-card-content>
                         <p>Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa. This is heavy.</p>
                     </ion-card-content>
-
                     <ion-row>
                         <ion-col>
                             <button ion-button icon-left clear small>
-        <ion-icon name="thumbs-up"></ion-icon>
-        <div>12 Likes</div>
-      </button>
+                                <ion-icon name="thumbs-up"></ion-icon>
+                                <div>12 Likes</div>
+                            </button>
                         </ion-col>
                         <ion-col>
                             <button ion-button icon-left clear small>
-        <ion-icon name="text"></ion-icon>
-        <div>4 Comments</div>
-      </button>
+                                <ion-icon name="text"></ion-icon>
+                                <div>4 Comments</div>
+                            </button>
                         </ion-col>
                         <ion-col center text-center>
                             <ion-note>
@@ -73,7 +72,70 @@
                             </ion-note>
                         </ion-col>
                     </ion-row>
-
+                </ion-card>
+                <ion-card no-padding>
+                    <ion-item>
+                        <ion-avatar item-left>
+                            <img src="https://ionicframework.com/dist/preview-app/www/assets/img/marty-avatar.png">
+                        </ion-avatar>
+                        <h2>Marty McFly</h2>
+                        <p>November 5, 1955</p>
+                    </ion-item>
+                    <img src="https://ionicframework.com/dist/preview-app/www/assets/img/advance-card-bttf.png">
+                    <ion-card-content>
+                        <p>Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa. This is heavy.</p>
+                    </ion-card-content>
+                    <ion-row>
+                        <ion-col>
+                            <button ion-button icon-left clear small>
+                                <ion-icon name="thumbs-up"></ion-icon>
+                                <div>12 Likes</div>
+                            </button>
+                        </ion-col>
+                        <ion-col>
+                            <button ion-button icon-left clear small>
+                                <ion-icon name="text"></ion-icon>
+                                <div>4 Comments</div>
+                            </button>
+                        </ion-col>
+                        <ion-col center text-center>
+                            <ion-note>
+                                11h ago
+                            </ion-note>
+                        </ion-col>
+                    </ion-row>
+                </ion-card>
+                <ion-card no-padding>
+                    <ion-item>
+                        <ion-avatar item-left>
+                            <img src="https://ionicframework.com/dist/preview-app/www/assets/img/marty-avatar.png">
+                        </ion-avatar>
+                        <h2>Marty McFly</h2>
+                        <p>November 5, 1955</p>
+                    </ion-item>
+                    <img src="https://ionicframework.com/dist/preview-app/www/assets/img/advance-card-bttf.png">
+                    <ion-card-content>
+                        <p>Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa. This is heavy.</p>
+                    </ion-card-content>
+                    <ion-row>
+                        <ion-col>
+                            <button ion-button icon-left clear small>
+                                <ion-icon name="thumbs-up"></ion-icon>
+                                <div>12 Likes</div>
+                            </button>
+                        </ion-col>
+                        <ion-col>
+                            <button ion-button icon-left clear small>
+                                <ion-icon name="text"></ion-icon>
+                                <div>4 Comments</div>
+                            </button>
+                        </ion-col>
+                        <ion-col center text-center>
+                            <ion-note>
+                                11h ago
+                            </ion-note>
+                        </ion-col>
+                    </ion-row>
                 </ion-card>
             </ion-col>
         </ion-row>

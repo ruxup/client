@@ -68,7 +68,7 @@ export class HomePage {
   }
 
   openFindEvents() {
-    let modal = this.modalCtrl.create(FindEventPage);
+    let modal = this.modalCtrl.create(FindEventPage, {"owner_id": this.user.id});
     modal.present();
   }
 

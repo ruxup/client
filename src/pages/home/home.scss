@@ -50,6 +50,10 @@
             font-size: 1.5em;
             font-weight: bold;
         }
+        &__container {
+            margin-top: -25px;
+            text-align: left;
+        }
         &__timeline {
             padding: 2em 0;
             &:before {
@@ -67,7 +71,7 @@
 
 #event_container {
     z-index: 9;
-    transform: translateY(-25%);
+    transform: translateY(-50%);
     justify-content: center;
 }
 
@@ -78,4 +82,17 @@
 #find-event {
     background-size: cover;
     margin-right: 10%;
+    background-position: 50%;
+}
+
+.swiper-pagination {
+    bottom: 40px!important;
+}
+
+#feeds {
+    ion-card {
+        margin-left: 0;
+        margin-right: 0;
+        width: 100%;
+    }
 }
