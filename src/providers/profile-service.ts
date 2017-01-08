@@ -59,4 +59,15 @@ export class ProfileService {
         .catch((error: any) => Observable.throw(error));
   }
 
+  loadMyEvent(id): Observable<string> {
+    //https://ruxup.herokuapp.com/backend/public/index.php/api/getEventsOwner/54
+    let headers = new Headers();
+      headers.append('Token', this.token);
+  
+      let options = new RequestOptions({headers: headers});
+      let url = "https://ruxup.herokuapp.com/backend/public/index.php/api/getEventsOwner/" + id;
+      return this.http.get(url, options)
+        .map(res => <string>res.json());
+  }
+
 }

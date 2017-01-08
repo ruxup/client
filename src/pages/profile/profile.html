@@ -4,6 +4,11 @@
       <ion-icon name="menu"></ion-icon>
     </button>
         <ion-title>Profile</ion-title>
+        <ion-buttons end>
+            <button ion-button icon-only>
+        <ion-icon name="create"></ion-icon>
+      </button>
+        </ion-buttons>
     </ion-navbar>
 </ion-header>
 
@@ -17,6 +22,78 @@
                 </ion-col>
             </ion-row>
         </ion-grid>
+    </div>
+    <div class="profile__tab">
+        <ion-grid no-padding>
+            <ion-row>
+                <ion-col no-padding>
+                    <!-- Segment in a form -->
+                    <ion-segment [(ngModel)]="tabs" color="dark">
+                        <ion-segment-button value="bio">
+                            Bio
+                        </ion-segment-button>
+                        <ion-segment-button value="events">
+                            Events
+                        </ion-segment-button>
+                    </ion-segment>
+                    <div [ngSwitch]="tabs">
+                        <ion-list *ngSwitchCase="'bio'">
+                            <div padding center>
+                                <p>"{{user?.bio}}"</p>
+                            </div>
+                            <ion-list-header>
+                                Details
+                            </ion-list-header>
+                            <ion-item>
+                                <ion-label>
+                                    Email
+                                </ion-label>
+                                <div item-content>
+                                    {{user?.email}}
+                                </div>
+                            </ion-item>
+                            <ion-item>
+                                <ion-label>
+                                    City
+                                </ion-label>
+                                <div item-content>
+                                    {{user?.city}}
+                                </div>
+                            </ion-item>
+                            <ion-item>
+                                <ion-label>
+                                    Nationality
+                                </ion-label>
+                                <div item-content>
+                                    {{user?.nationality}}
+                                </div>
+                            </ion-item>
+                            <ion-item>
+                                <ion-label>
+                                    Phone
+                                </ion-label>
+                                <div item-content>
+                                    {{user?.phone}}
+                                </div>
+                            </ion-item>
 
+                        </ion-list>
+                        <ion-list *ngSwitchCase="'events'">
+                            <ion-col>
+                                <ion-card *ngFor="let event of events">
+                                    <div class="overlay"></div>
+
+                                    <img class="img-responsive" [src]="loadPicture(event?.category)">
+                                    <div class="card-content">
+                                        <div class="card-title">{{event?.name ? event?.name : 'No Name'}}</div>
+                                        <div class="card-subtitle">{{event?.category ? event?.category : 'No Category'}} {{event?.location ? '- ' + event?.location : ''}}</div>
+                                    </div>
+                                </ion-card>
+                            </ion-col>
+                        </ion-list>
+                    </div>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
     </div>
 </ion-content>
