@@ -11,15 +11,65 @@
         </ion-buttons>
     </ion-toolbar>
 </ion-header>
-<ion-content>
-    <ion-list>
-        <ion-item>
-            <ion-avatar item-left>
+<ion-content no-padding class="page-find-event">
+    <ion-grid no-padding>
+        <ion-row id="search-event" no-padding>
+            <ion-col padding>
+                <ion-item>
+                    <ion-icon name="ios-information-circle-outline"></ion-icon>
+                    <ion-input type="text" placeholder="Search"></ion-input>
+                </ion-item>
+                <ion-list style="margin-top:10px;">
+                    <ion-item>
+                        <ion-label>Filter</ion-label>
+                        <ion-select name="Filter" type="text">
+                            <ion-option>None</ion-option>
+                            <ion-option>Location</ion-option>
+                            <ion-option>Category</ion-option>
+                        </ion-select>
+                    </ion-item>
 
-            </ion-avatar>
-            <h2>Name</h2>
 
-        </ion-item>
+                </ion-list>
 
-    </ion-list>
+                <button ion-button block color="dark" outline round icon-left> 
+                        <ion-icon name="ios-search"></ion-icon>
+                        Search
+                    </button>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col padding>
+                <h3 class="name">Discover</h3>
+            </ion-col>
+        </ion-row>
+        <ion-row padding wrap style="margin-top: -35px;">
+            <ion-card (click)="openFindEvents()">
+                <img class="img-responsive" src="assets/img/category/food.jpg" />
+                <div class="overlay"></div>
+                <div class="card-title">#Food</div>
+            </ion-card>
+            <ion-card (click)="openFindEvents()">
+                <img class="img-responsive" src="assets/img/category/music.jpg" />
+                <div class="overlay"></div>
+                <div class="card-title">#Music</div>
+            </ion-card>
+            <ion-card (click)="openFindEvents()">
+                <img class="img-responsive" src="assets/img/category/party.jpg" />
+                <div class="overlay"></div>
+                <div class="card-title">#Party</div>
+            </ion-card>
+            <ion-card (click)="openFindEvents()">
+                <img class="img-responsive" src="assets/img/category/sport.jpg" />
+                <div class="overlay"></div>
+                <div class="card-title">#Sport</div>
+            </ion-card>
+            <ion-card (click)="openFindEvents()">
+                <img class="img-responsive" src="assets/img/category/Travel.jpg" />
+                <div class="overlay"></div>
+                <div class="card-title">#Travel</div>
+            </ion-card>
+        </ion-row>
+
+    </ion-grid>
 </ion-content>

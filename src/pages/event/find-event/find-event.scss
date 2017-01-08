@@ -1,0 +1,41 @@
+.page-find-event {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #f7f7f7;
+    padding: 2em;
+    ion-card {
+        position: relative;
+        text-align: left;
+        margin-right: 0;
+        margin-left: 0;
+        width: 100%;
+        height: 100px;
+        img {
+            margin-top: -10%;
+        }
+    }
+    .item-inner {
+        border-bottom: none!important;
+    }
+    .card-title {
+        position: absolute;
+        top: 50%;
+        left: 5%;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        font-size: 1.2em;
+        font-weight: bold;
+        color: #fff;
+        line-height: 1;
+    }
+}
+
+#search-event {
+    min-height: 200px;
+    height: 20%;
+    background: #e9ebee;
+}
+
+#explore-event {
+    min-height: 50%;
+}

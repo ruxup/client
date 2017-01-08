@@ -36811,6 +36811,18 @@ sub {
   }
 }
 
+.overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 3px;
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
 .page-create-event {
   background-repeat: no-repeat;
   background-size: cover;
@@ -36845,6 +36857,52 @@ sub {
 
 .page-create-event__forms--link {
   color: white;
+}
+
+.page-find-event {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #f7f7f7;
+  padding: 2em;
+}
+
+.page-find-event ion-card {
+  position: relative;
+  text-align: left;
+  margin-right: 0;
+  margin-left: 0;
+  width: 100%;
+  height: 100px;
+}
+
+.page-find-event ion-card img {
+  margin-top: -10%;
+}
+
+.page-find-event .item-inner {
+  border-bottom: none !important;
+}
+
+.page-find-event .card-title {
+  position: absolute;
+  top: 50%;
+  left: 5%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #fff;
+  line-height: 1;
+}
+
+#search-event {
+  min-height: 200px;
+  height: 20%;
+  background: #e9ebee;
+}
+
+#explore-event {
+  min-height: 50%;
 }
 
 .page-home {
@@ -36905,10 +36963,38 @@ sub {
   line-height: 1;
 }
 
+.page-home .feeds {
+  margin-top: -20px;
+}
+
+.page-home .feeds__title {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.page-home .feeds__container {
+  margin-top: -25px;
+  text-align: left;
+}
+
+.page-home .feeds__timeline {
+  padding: 2em 0;
+}
+
+.page-home .feeds__timeline:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 18px;
+  height: 100%;
+  width: 4px;
+  background: #d7e4ed;
+}
+
 #event_container {
   z-index: 9;
-  -webkit-transform: translateY(-25%);
-  transform: translateY(-25%);
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
@@ -36921,6 +37007,17 @@ sub {
 #find-event {
   background-size: cover;
   margin-right: 10%;
+  background-position: 50%;
+}
+
+.swiper-pagination {
+  bottom: 40px !important;
+}
+
+#feeds ion-card {
+  margin-left: 0;
+  margin-right: 0;
+  width: 100%;
 }
 
 .page-login {
