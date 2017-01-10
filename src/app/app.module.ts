@@ -16,7 +16,9 @@ import { HomePage } from '../pages/home/home';
 import { FindEventPage } from '../pages/event/find-event/find-event';
 import { CreateEventPage } from '../pages/event/create-event/create-event';
 import { ProfilePage } from '../pages/profile/profile';
+import { EditProfilePage } from '../pages/profile/edit-profile/edit-profile';
 import { EventPage } from '../pages/event/event';
+import { CountryListPage } from '../pages/event/create-event/country-list/country-list';
 
 import { MultiPickerModule } from 'ion-multi-picker';
 
@@ -30,7 +32,9 @@ import { MultiPickerModule } from 'ion-multi-picker';
     FindEventPage,
     CreateEventPage,
     ProfilePage,
-    EventPage
+    EventPage,
+    EditProfilePage,
+    CountryListPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -46,7 +50,9 @@ import { MultiPickerModule } from 'ion-multi-picker';
     FindEventPage,
     CreateEventPage,
     ProfilePage,
-    EventPage
+    EventPage,
+    EditProfilePage,
+    CountryListPage
   ],
   providers: [Storage, 
               ApiService, 

@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, ModalController, NavParams } from 'ionic-angular';
 
 import { User } from '../../models/user';
 
 import { ProfileService } from '../../providers/profile-service';
 import { EventPage } from '../event/event';
+import { EditProfilePage } from './edit-profile/edit-profile';
 
 /*
  Generated class for the Profile page.
@@ -21,7 +22,9 @@ export class ProfilePage {
   tabs: any;
   events: any;
 
-  constructor(public navCtrl: NavController, private profileService: ProfileService) {
+  constructor(public navCtrl: NavController, 
+              private profileService: ProfileService,
+              public modalCtrl: ModalController) {
     this.tabs = "bio";
   }
 
@@ -42,6 +45,63 @@ export class ProfilePage {
         .subscribe(data => {
           console.log(data);
           this.events = data;
+              this.events = [
+  {
+    "id": 34,
+    "name": "China Great Wall Trip",
+    "location": "Huairou, China",
+    "start_time": "2016-12-13 21:30:45",
+    "end_time": "2016-12-14 21:30:45",
+    "description": "The Great Wall of China is a series of fortifications made of stone, brick, tamped earth, wood, and other materials, generally built along an east-to-west line across the historical northern borders of China to protect the Chinese states and empires against the raids and invasions of the various nomadic groups of the",
+    "image": null,
+    "category": "Travel",
+    "owner_id": 54
+  },
+  {
+    "id": 44,
+    "name": "Real Madrid Match ",
+    "location": "Madrid, Spain",
+    "start_time": "2016-12-13 21:30:45",
+    "end_time": "2016-12-14 21:30:45",
+    "description": "Watching the greatest football match ever",
+    "image": null,
+    "category": "Sport",
+    "owner_id": 54
+  },
+  {
+    "id": 54,
+    "name": "Japanese Sushi Tasting",
+    "location": "Tokyo, Japan",
+    "start_time": "2017-01-06 23:04:05",
+    "end_time": "2017-01-07 23:04:05",
+    "description": "Taste the freshest and tastiest sushi ever made in japan",
+    "image": null,
+    "category": "Food",
+    "owner_id": 54
+  },
+  {
+    "id": 64,
+    "name": "Coldplay Live Concert",
+    "location": "Berlin, Germany",
+    "start_time": "2017-01-06 23:07:31",
+    "end_time": "2017-01-07 23:07:31",
+    "description": "The biggest tour of coldpay that you can miss!",
+    "image": null,
+    "category": "Music",
+    "owner_id": 54
+  },
+  {
+    "id": 74,
+    "name": "LA LA LA Party!",
+    "location": "Lisbon, Portugal",
+    "start_time": "2017-01-06 23:51:25",
+    "end_time": "2017-01-07 23:51:25",
+    "description": "Whole night of partying with famous DJ all over the world!!!",
+    "image": null,
+    "category": "Party",
+    "owner_id": 54
+  }
+]
         });
       });
   }
@@ -56,6 +116,16 @@ export class ProfilePage {
   openEvent(id): void {
     console.log('event opened: ' + id);
     this.navCtrl.push(EventPage, {eventId: id, events: this.events});
+  }
+
+  editProfile() {
+    console.log('clicke');
+    let modal = this.modalCtrl.create(EditProfilePage, {"owner_id": this.user.id, details: this.user});
+    modal.onDidDismiss(data => {
+     console.log(data);
+     this.user = data;
+   });
+    modal.present();
   }
 
 }

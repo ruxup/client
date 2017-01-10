@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
-import { NavParams, ViewController } from 'ionic-angular';
+import { NavController, NavParams, ViewController, ModalController } from 'ionic-angular';
 import { Validators } from '@angular/forms';
 
 import { AuthService } from '../../../providers/auth-service';
 import { EventService } from '../../../providers/event-service';
 
+import { CountryListPage } from './country-list/country-list';
+
+import { LoadingController } from 'ionic-angular';
 
 @Component({
   templateUrl: 'create-event.html',
@@ -18,12 +21,16 @@ export class CreateEventPage {
   endDate: String;
   categories: any;
   locations: any;
+  loader: any;
 
   constructor(public params: NavParams,
+              public navCtrl: NavController,
               public viewCtrl: ViewController,
               private authService: AuthService,
               private eventService: EventService,
-              private navParams: NavParams) {    
+              private navParams: NavParams,
+              private loadingCtrl: LoadingController,
+              public modalCtrl: ModalController) {    
     this.startDate = new Date().toISOString();
     this.endDate = new Date(Date.now() + 86400000).toISOString();
     this.event = {
@@ -34,6 +41,8 @@ export class CreateEventPage {
       end: '',
     };
 
+    this.event.location = 'None';
+
   }
 
   ionViewLoaded() {
@@ -42,6 +51,14 @@ export class CreateEventPage {
 
   dismiss() {
     this.viewCtrl.dismiss();
+  }
+
+presentLoading() {
+    this.loader = this.loadingCtrl.create({
+      content: "Please wait...",
+      duration: 3000
+    });
+    this.loader.present();
   }
 
   create(): void {
@@ -70,5 +87,16 @@ export class CreateEventPage {
         d = d.replace("Z", '');
         return d.replace(/\.[0-9]{3}/, '');
     }
+  }
+
+   openCountry(): void {
+     console.log('open country');
+    let modal = this.modalCtrl.create(CountryListPage);
+    modal.onDidDismiss(data => {
+     console.log(data);
+     this.event.location = data;
+   });
+       modal.present();
+
   }
 }

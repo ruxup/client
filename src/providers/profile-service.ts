@@ -70,4 +70,23 @@ export class ProfileService {
         .map(res => <string>res.json());
   }
 
+  update(user): Observable<string> {
+    let headers = new Headers();
+      headers.append('Token', this.token);
+      
+    let body = JSON.stringify({
+      name: user.name,
+      email: user.email,
+      nationality: user.nationality,
+      bio: user.bio,
+      city: user.city,
+      phone: user.phone
+    });
+
+      let options = new RequestOptions({headers: headers});
+      let url = "https://ruxup.herokuapp.com/backend/public/index.php/api/profile/" + user.id;
+      return this.http.put(url, body, options)
+        .map(res => <string>res.json());
+  }
+
 }

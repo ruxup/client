@@ -11,7 +11,7 @@
         </ion-buttons>
     </ion-toolbar>
 </ion-header>
-<ion-content padding class="page-create-event" [ngStyle]="{'background-image': 'url(assets/img/create-event-big-2.jpg)'}">
+<ion-content padding class="page-create-event" [ngStyle]="{'background-image': 'url(assets/img/create-event2.jpg)'}">
     <ion-list class="page-create-event__forms">
         <form (ngSubmit)='create()'>
             <ion-item class="page-create-event__forms--input">
@@ -38,7 +38,7 @@
                 <ion-label stacked>End Date</ion-label>
                 <ion-datetime displayFormat="D MMM YYYY" min="2016" max="2018-12-31" [(ngModel)]="endDate" [ngModelOptions]="{standalone: true}"></ion-datetime>
             </ion-item>
-            <ion-item class="page-create-event__forms--input">
+            <!--<ion-item class="page-create-event__forms--input">
                 <ion-label floating>Location</ion-label>
                 <ion-select name="location" [(ngModel)]="event.location" type="text">
                     <ion-option>Asia</ion-option>
@@ -46,6 +46,14 @@
                     <ion-option>America</ion-option>
                     <ion-option>Australia</ion-option>
                 </ion-select>
+            </ion-item>-->
+            <ion-item (click)="openCountry()" class="page-create-event__forms--input">
+                <ion-label stacked>Location</ion-label>
+                <ion-input name="location" [(ngModel)]="event.location" type="text"></ion-input>
+            </ion-item>
+            <ion-item class="page-create-event__forms--input">
+                <ion-label stacked>Description</ion-label>
+                <ion-textarea name="description" [(ngModel)]="event.description" rows="6" placeholder="enter event description here..."></ion-textarea>
             </ion-item>
 
             <button ion-button block round class="page-create-event__forms--button dark-grey" type="submit">Create Event</button>
