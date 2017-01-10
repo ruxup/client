@@ -6,6 +6,7 @@ import { AuthService } from '../../../providers/auth-service';
 import { EventService } from '../../../providers/event-service';
 
 import { CountryListPage } from './country-list/country-list';
+import { EventPage } from '../../event/event';
 
 import { LoadingController } from 'ionic-angular';
 
@@ -62,7 +63,7 @@ presentLoading() {
   }
 
   create(): void {
-
+    this.presentLoading();
     console.log(this.authService.getUserID());
     this.event.start = this.formatDate(this.startDate);
     this.event.end = this.formatDate(this.endDate);
@@ -74,9 +75,14 @@ presentLoading() {
       .subscribe(
       data => {
         console.log(data);
+        this.loader.dismiss();
+        this.openEvent(194);
       }, err => {
+        this.loader.dismiss();
         console.log(err._body);
         this.dismiss();
+        this.openEvent(194);
+
       }
       );
   }
@@ -97,6 +103,13 @@ presentLoading() {
      this.event.location = data;
    });
        modal.present();
-
   }
+
+  openEvent(id): void {
+    console.log('event opened: ' + id);
+    this.navCtrl.push(EventPage, {eventId: id, events: this.event});
+  }
+
+  
+  
 }

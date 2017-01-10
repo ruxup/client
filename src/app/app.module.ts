@@ -19,6 +19,10 @@ import { ProfilePage } from '../pages/profile/profile';
 import { EditProfilePage } from '../pages/profile/edit-profile/edit-profile';
 import { EventPage } from '../pages/event/event';
 import { CountryListPage } from '../pages/event/create-event/country-list/country-list';
+import { EditEventPage } from '../pages/event/edit-event/edit-event';
+import { SearchResultPage } from '../pages/event/search-result/search-result';
+
+import { Ionic2RatingModule } from 'ionic2-rating';
 
 import { MultiPickerModule } from 'ion-multi-picker';
 
@@ -34,12 +38,15 @@ import { MultiPickerModule } from 'ion-multi-picker';
     ProfilePage,
     EventPage,
     EditProfilePage,
-    CountryListPage
+    CountryListPage,
+    EditEventPage,
+    SearchResultPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
     MultiPickerModule,
-    FormsModule 
+    FormsModule,
+    Ionic2RatingModule 
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -52,7 +59,9 @@ import { MultiPickerModule } from 'ion-multi-picker';
     ProfilePage,
     EventPage,
     EditProfilePage,
-    CountryListPage
+    CountryListPage,
+    EditEventPage,
+    SearchResultPage
   ],
   providers: [Storage, 
               ApiService, 

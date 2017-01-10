@@ -21,18 +21,37 @@
                 </ion-item>
                 <ion-list style="margin-top:10px;">
                     <ion-item>
+                        <ion-label stacked>Start Date</ion-label>
+                        <ion-datetime displayFormat="D MMM YYYY" min="{{startDate}}" max="2018-12-31" [(ngModel)]="startDate" [ngModelOptions]="{standalone: true}"></ion-datetime>
+                    </ion-item>
+                    <ion-item style="margin-top:10px;">
                         <ion-label>Filter</ion-label>
-                        <ion-select name="Filter" type="text">
+                        <ion-select [(ngModel)]="choice" (ionChange)='updateChecker()' name="Filter" type="text">
                             <ion-option>None</ion-option>
                             <ion-option>Location</ion-option>
                             <ion-option>Category</ion-option>
                         </ion-select>
                     </ion-item>
 
+                    <ion-item (click)="openCountry()" [hidden]="!isLocation" style="margin-top:10px;">
+                        <ion-input name="location" [(ngModel)]="location" type="text" placeholder="Location"></ion-input>
+                    </ion-item>
+                    <ion-item [hidden]="!isCategory" style="margin-top:10px;">
+                        <ion-label>Category</ion-label>
+
+                        <ion-select name="category" [(ngModel)]="category" type="text">
+                            <ion-option>Food</ion-option>
+                            <ion-option>Music</ion-option>
+                            <ion-option>Party</ion-option>
+                            <ion-option>Sport</ion-option>
+                            <ion-option>Travel</ion-option>
+                        </ion-select>
+                    </ion-item>
+
 
                 </ion-list>
 
-                <button ion-button block color="dark" outline round icon-left> 
+                <button (click)="search()" ion-button block color="dark" outline round icon-left> 
                         <ion-icon name="ios-search"></ion-icon>
                         Search
                     </button>

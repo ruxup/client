@@ -35,7 +35,8 @@ token: string;
             start_time: event.start,
             end_time: event.end,
             category: event.category,
-            owner_id: event.owner_id
+            owner_id: event.owner_id,
+            description : event.description,
         });
 
         console.log(body);
