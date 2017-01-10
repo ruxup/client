@@ -4,7 +4,7 @@
       <ion-icon name="menu"></ion-icon>
     </button>
         <ion-title>Event</ion-title>
-        <ion-buttons end>
+        <ion-buttons (click)="editEvent()" end>
             <button ion-button icon-only>
         <ion-icon name="create"></ion-icon>
       </button>
@@ -13,38 +13,136 @@
 </ion-header>
 
 <ion-content>
-    <div>
+    <div class="profile__cover" [ngStyle]="{'background-image': 'url(' + loadPicture(singleEvent?.category) + ')'}">
         <ion-grid>
             <ion-row>
                 <ion-col text-center>
-                    <img class="img-responsive" [src]="loadPicture(singleEvent?.category)">
-                    <div class="card-content">
-                        <div class="card-title">{{singleEvent?.name ? singleEvent?.name : 'No Name'}}</div>
-                        <div class="card-subtitle">{{singleEvent?.category ? singleEvent?.category : 'No Category'}} {{singleEvent?.location ? '- ' + singleEvent?.location : ''}}</div>
-                    </div>
+                    <h2 class="profile__name" no-padding no-margin text-uppercase>{{singleEvent?.name ? singleEvent?.name : 'No Name'}}</h2>
+                    <h4 class="event__details">{{singleEvent?.category ? singleEvent?.category : 'No Category'}} {{singleEvent?.location ? '- ' + singleEvent?.location : ''}}</h4>
+                    <button ion-button outline (click)="leave()" color="light">{{this.isJoined ? 'Join' : 'Leave'}}</button>
                 </ion-col>
             </ion-row>
         </ion-grid>
     </div>
+
     <div class="profile__tab">
         <ion-grid no-padding>
             <ion-row>
                 <ion-col no-padding>
                     <!-- Segment in a form -->
                     <ion-segment [(ngModel)]="tabs" color="dark">
+
+                        <ion-segment-button value="desc">
+                            Detail
+                        </ion-segment-button>
                         <ion-segment-button value="chat">
-                            Chat
+                            Message
                         </ion-segment-button>
                         <ion-segment-button value="member">
                             Member
                         </ion-segment-button>
                     </ion-segment>
                     <div [ngSwitch]="tabs">
+                        <ion-list *ngSwitchCase="'desc'">
+                            <div padding center>
+                                <p>"{{singleEvent?.description}}"</p>
+                            </div>
+                            <ion-list-header>
+                                Details
+                            </ion-list-header>
+                            <ion-item>
+                                <ion-label>
+                                    Rate
+                                </ion-label>
+                                <div item-content>
+                                    <rating [(ngModel)]="rate"></rating>
+
+                                </div>
+                            </ion-item>
+                            <ion-item>
+                                <ion-label>
+                                    Location
+                                </ion-label>
+                                <div item-content>
+                                    {{singleEvent?.location}}
+                                </div>
+                            </ion-item>
+                            <ion-item>
+                                <ion-label>
+                                    Category
+                                </ion-label>
+                                <div item-content>
+                                    {{singleEvent?.category}}
+                                </div>
+                            </ion-item>
+                            <ion-item>
+                                <ion-label>
+                                    Start Date
+                                </ion-label>
+                                <div item-content>
+                                    {{setDate(singleEvent?.start_time) | date:"d MMM yyyy"}}
+                                </div>
+                            </ion-item>
+                            <ion-item>
+                                <ion-label>
+                                    End Date
+                                </ion-label>
+                                <div item-content>
+                                    {{setDate(singleEvent?.end_time) | date:"d MMM yyyy"}}
+                                </div>
+                            </ion-item>
+                            <ion-item>
+                                <ion-label>
+                                    Share </ion-label>
+                                <div item-content>
+                                    <ion-col>
+                                        <a href="https://www.facebook.com/sharer/sharer.php?u=ruxup-client.herokuapp.com" target="_blank">
+                                            <ion-icon name="logo-facebook"></ion-icon>
+                                        </a>
+                                    </ion-col>
+                                    <ion-col>
+                                        <a href="https://www.facebook.com/sharer/sharer.php?u=ruxup-client.herokuapp.com" target="_blank">
+                                            <ion-icon name="logo-twitter"></ion-icon>
+                                        </a>
+                                    </ion-col>
+                                    <ion-col>
+                                        <a href="https://www.facebook.com/sharer/sharer.php?u=ruxup-client.herokuapp.com" target="_blank">
+                                            <ion-icon name="logo-googleplus"></ion-icon>
+                                        </a>
+                                    </ion-col>
+
+                                </div>
+                            </ion-item>
+
+                        </ion-list>
                         <ion-list *ngSwitchCase="'chat'">
-                            <p>chat</p>
+                            <ion-item>
+                                <ion-input [(ngModel)]="msg" placeholder="Enter Message" type="text"></ion-input>
+                                <button (click)="addMessage(msg)" ion-button item-right>
+                                      <ion-icon name="send"></ion-icon>Send
+                                </button>
+                            </ion-item>
+                            <ion-list>
+                                <ion-item *ngFor="let ms of messages">
+                                    <ion-avatar item-left>
+                                        <img src="https://api.adorable.io/avatars/120/null.jpg">
+                                    </ion-avatar>
+                                    <h2>Test</h2>
+                                    <p>{{ms}}</p>
+                                </ion-item>
+
+                            </ion-list>
                         </ion-list>
                         <ion-list *ngSwitchCase="'member'">
-                            <p>member</p>
+                            <ion-list ngFor="m of members">
+                                <ion-item>
+                                    <ion-avatar item-left>
+                                        <img [src]="loadAvatar(m?.name)">
+                                    </ion-avatar>
+                                    <h2>{{m?.name ? m?.name : 'Test'}}</h2>
+                                    <p>{{m?.city ? m?.city : 'Eindhoven' }} | {{m?.nationality ? m?.nationality : 'Dutch'}}</p>
+                                </ion-item>
+                            </ion-list>
                         </ion-list>
                     </div>
                 </ion-col>

@@ -1,0 +1,68 @@
+.page-search-results {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: white;
+    padding: 2em;
+    &__forms {
+        padding: 1em;
+        text-align: center;
+        &--input {
+            color: black;
+            margin-bottom: 20px;
+            padding: 0 15px 10px 15px;
+            font-size: 1em;
+            -webkit-border-radius: 3px;
+            border-radius: 3px;
+            background: rgba(255, 255, 255, 1);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+            transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+            &:hover {
+                box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+            }
+        }
+        &--button {
+            margin-top: 35px;
+            margin-bottom: 10px;
+        }
+        &--link {
+            color: white;
+        }
+    }
+    ion-card {
+        position: relative;
+        text-align: left;
+        height: 150px;
+    }
+    .card-content {
+        padding: 10px;
+    }
+    .card-title {
+        position: absolute;
+        top: 5%;
+        font-size: 2.0em;
+        width: 100%;
+        font-weight: bold;
+        color: #fff;
+    }
+    .card-subtitle {
+        font-size: 1.3em;
+        position: absolute;
+        top: 28%;
+        width: 100%;
+        color: #fff;
+        font-style: italic
+    }
+    .card-description {
+        position: absolute;
+        top: 38%;
+        width: 100%;
+        color: #fff;
+        p {
+            color: white;
+            width: 60%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+}

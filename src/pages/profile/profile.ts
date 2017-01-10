@@ -32,7 +32,7 @@ export class ProfilePage {
     this.profileService.load()
       .subscribe(data => {
         this.user = data['user'];
-        this.user.profile_pic = 'https://api.adorable.io/avatars/120/default';
+        this.user.profile_pic = 'https://api.adorable.io/avatars/120/' + data['user'].name + '.jpg';
         this.user.cover_pic = "https://images.unsplash.com/photo-1481204287293-36160be24f29";
         this.user.bio = "Travel writer by profession and lover of world cultures, languages, souls, food, oceans, wild spaces and urban places by nature.";
         this.user.city = "Eindhoven";
