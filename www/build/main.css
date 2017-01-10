@@ -36841,7 +36841,43 @@ sub {
   padding: 0 15px 10px 15px;
   font-size: 1em;
   border-radius: 3px;
-  background: rgba(255, 255, 255, 0.5);
+  background: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.page-create-event__forms--input:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.page-create-event__forms--button {
+  margin-top: 35px;
+  margin-bottom: 10px;
+}
+
+.page-create-event__forms--link {
+  color: white;
+}
+
+.page-create-event {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: white;
+  padding: 2em;
+}
+
+.page-create-event__forms {
+  padding: 1em;
+  text-align: center;
+}
+
+.page-create-event__forms--input {
+  color: black;
+  margin-bottom: 20px;
+  padding: 0 15px 10px 15px;
+  font-size: 1em;
+  border-radius: 3px;
+  background: white;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
@@ -37161,6 +37197,50 @@ sub {
   border-left-width: 0;
   border-radius: 0px 0 0 0px;
   border-right: none;
+}
+
+.page-edit-profile {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background: #e9ebee;
+  padding: 2em;
+}
+
+.page-edit-profile ion-item {
+  margin-bottom: 10px;
+}
+
+.page-edit-profile ion-item .item-inner {
+  border-bottom: none !important;
+}
+
+.page-edit-profile__forms {
+  padding: 1em;
+  text-align: center;
+}
+
+.page-edit-profile__forms--input {
+  color: black;
+  margin-bottom: 20px;
+  padding: 0 15px 10px 15px;
+  font-size: 1em;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.page-edit-profile__forms--input:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.page-edit-profile__forms--button {
+  margin-top: 35px;
+  margin-bottom: 10px;
+}
+
+.page-edit-profile__forms--link {
+  color: white;
 }
 
 .page-register {

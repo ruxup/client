@@ -1,0 +1,49 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>
+            Edit Profile
+        </ion-title>
+        <ion-buttons start>
+            <button ion-button (click)="dismiss()">
+        <span color="primary" showWhen="ios">Cancel</span>
+        <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+      </button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content padding class="page-edit-profile">
+    <ion-grid no-padding>
+        <ion-row id="search-event" no-padding>
+            <ion-col padding>
+                <ion-item>
+                    <ion-label stacked>Name</ion-label>
+                    <ion-input [(ngModel)]="userDetail.name" type="text" placeholder="Name"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label stacked>Email</ion-label>
+                    <ion-input [(ngModel)]="userDetail.email" type="email" placeholder="Email"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label stacked>Phone</ion-label>
+                    <ion-input [(ngModel)]="userDetail.phone" type="email" placeholder="Phone"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label stacked>Nationality</ion-label>
+                    <ion-input [(ngModel)]="userDetail.nationality" type="text" placeholder="Nationality"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label stacked>City</ion-label>
+                    <ion-input [(ngModel)]="userDetail.city" type="text" placeholder="City"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label stacked>Bio</ion-label>
+                    <ion-textarea [(ngModel)]="userDetail.bio" rows="6" placeholder="enter your bio here..."></ion-textarea>
+                </ion-item>
+
+                <button (click)="save()" style="margin-top: 20px;" ion-button block color="dark" outline round icon-left> 
+                        Save
+                    </button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>
