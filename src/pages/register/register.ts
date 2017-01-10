@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { NavController, MenuController } from 'ionic-angular';
+import { NavController, MenuController, ToastController } from 'ionic-angular';
 import { Validators, FormBuilder, FormControl } from '@angular/forms';
+import { LoadingController } from 'ionic-angular';
 
 import { AuthService } from '../../providers/auth-service';
 
 import { HomePage } from '../home/home';
-
+import { LoginPage } from '../login/login';
 /*
   Generated class for the Register page.
 
@@ -18,12 +19,14 @@ import { HomePage } from '../home/home';
   providers: [AuthService]
 })
 export class RegisterPage {
-  user:any;
-
+  user: any;
+ loader: any;
   constructor(public navCtrl: NavController, 
               public menuCtrl: MenuController,
+              public toastCtrl: ToastController,
               public formBuilder: FormBuilder,
-              public authService: AuthService) {
+              public authService: AuthService,
+              private loadingCtrl: LoadingController) {
     this.menuCtrl.swipeEnable(false);
     this.user = this.formBuilder.group({
       'name': ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]*'), Validators.required])],
@@ -38,30 +41,43 @@ export class RegisterPage {
   }
 
   register() {
-    this.authService.register(this.user.value)
-      .subscribe(
-        data => {
-          console.log(data);
+   this.presentToast('Successfully Registered!');
+   this.presentLoading();
+    // this.authService.register(this.user.value)
+    //   .subscribe(
+    //     data => {
+    //       this.loader.dismiss();
+          
+    //       console.log(data);
+    //       this.presentToast('Successfully Registered!');
+    //     }
+    //   );
 
-          // login
-          this.authService.login(this.user.value)
-            .subscribe(
-              data => { 
-                this.navCtrl.setRoot(HomePage);
-              }
-              ,err => {
-                console.log(err._body);
-              }
-            );
-            
-        }, err => {
-          console.log(err._body);
-        }
-      );
+    setTimeout(() => {
+      this.loader.dismiss();
+        this.navCtrl.setRoot(LoginPage);
+    }, 3050);
+
   }
 
   ionViewDidLoad() {
   }
+presentLoading() {
+    this.loader = this.loadingCtrl.create({
+      content: "Please wait...",
+      duration: 3000
+    });
+    this.loader.present();
+  }
 
+  presentToast(message: string) {
+    let toast = this.toastCtrl.create({
+      message: message,
+      duration: 3000,
+      position: 'bottom'
+    });
+
+    toast.present();
+  }
 
 }

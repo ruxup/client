@@ -80,7 +80,7 @@
                         </ion-list>
                         <ion-list *ngSwitchCase="'events'">
                             <ion-col>
-                                <ion-card *ngFor="let event of events">
+                                <ion-card *ngFor="let event of events" (click)="openEvent(event?.id)">
                                     <div class="overlay"></div>
 
                                     <img class="img-responsive" [src]="loadPicture(event?.category)">
