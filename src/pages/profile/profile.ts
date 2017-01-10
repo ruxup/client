@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 
 import { User } from '../../models/user';
 
 import { ProfileService } from '../../providers/profile-service';
+import { EventPage } from '../event/event';
 
 /*
  Generated class for the Profile page.
@@ -49,8 +50,12 @@ export class ProfilePage {
 
   loadPicture(category): string {
     let imgUrl = 'assets/img/category/' + category + '.jpg';
-    console.log(category);
     return imgUrl;
+  }
+
+  openEvent(id): void {
+    console.log('event opened: ' + id);
+    this.navCtrl.push(EventPage, {eventId: id, events: this.events});
   }
 
 }

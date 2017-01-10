@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms';
 import { NavController, MenuController, ToastController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
+import { LoadingController } from 'ionic-angular';
+
 
 import { AuthService } from '../../providers/auth-service';
 
@@ -21,13 +23,14 @@ import { HomePage } from '../home/home';
 })
 export class LoginPage {
   user:any;
-
+  loader: any;
   constructor(public storage: Storage, 
               public navCtrl: NavController, 
               public menuCtrl: MenuController, 
               public toastCtrl: ToastController,
               public formBuilder: FormBuilder, 
-              public authService: AuthService) {
+              public authService: AuthService,
+              private loadingCtrl: LoadingController) {
     this.menuCtrl.swipeEnable(false);
     this.user = this.formBuilder.group({
       'email': ['', Validators.required],
@@ -40,12 +43,16 @@ export class LoginPage {
   }
 
   login() {
+    
+    this.presentLoading();
     this.authService.login(this.user.value)
       .subscribe(
         data => { 
+          this.loader.dismiss();
           this.navCtrl.setRoot(HomePage);
         }
         ,err => {
+          this.loader.dismiss();
           console.log(err._body);
           this.presentToast(err._body);
           this.storage.clear();
@@ -66,5 +73,12 @@ export class LoginPage {
     });
 
     toast.present();
+  }
+
+  presentLoading() {
+    this.loader = this.loadingCtrl.create({
+      content: "Please wait...",
+    });
+    this.loader.present();
   }
 }
